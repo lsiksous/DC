@@ -69,9 +69,17 @@ with st.sidebar:
         if save_yaml(st.session_state.data, YAML_FILE):
             st.success("✅ Saved successfully!")
     
-    if st.button("📥 Export to JSON"):
-        if export_json(st.session_state.data, JSON_EXPORT):
-            st.success(f"✅ Exported to {JSON_EXPORT}")
+    if st.button("📥 Export to DoYouBuzz JSON"):
+        # Use doyoubuzz_converter for proper format
+        import subprocess
+        result = subprocess.run([
+            'python', 'doyoubuzz_converter.py', 'yaml2json',
+            'showcase.yaml', 'showcase_export.json', 'showcase.original.json'
+        ], capture_output=True, text=True)
+        if result.returncode == 0:
+            st.success("✅ Exported to showcase_export.json (DoYouBuzz compatible)")
+        else:
+            st.error(f"Export failed: {result.stderr}")
     
     if st.button("🔄 Reload from file"):
         st.session_state.data = load_yaml(YAML_FILE)

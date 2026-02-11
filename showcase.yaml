@@ -113,15 +113,34 @@ experience:
   end_date: 2026-02
   context: Exploitation et fiabilisation de plateformes Big Data critiques en environnement bancaire, avec de fortes contraintes de disponibilité, sécurité et performance.
   missions:
-  - Administration et exploitation de clusters Hadoop / Cloudera en production (>100 nœuds)
-  - Support expert N3 / N4 sur incidents critiques (HDFS, YARN, Kafka, Spark, OS)
-  - Analyse approfondie de logs applicatifs et systèmes (volumétrie élevée)
-  - Stabilisation de plateformes soumises à des pics allant jusqu’à 1 000 connexions SSH simultanées
-  - "Optimisation mémoire et tuning système, réduction significative des incidents OOM\t•\tAutomatisation des tâches d’exploitation et de diagnostic via Bash et Python"
-  - Amélioration du monitoring et de l’observabilité, réduction du bruit d’alertes
+  - description: Administration et exploitation de clusters Hadoop / Cloudera en production (>100 nœuds)
+    _dyb_id: 103974113
+    _dyb_sort: 0
+  - description: Support expert N3 / N4 sur incidents critiques (HDFS, YARN, Kafka, Spark, OS)
+    _dyb_id: 103974114
+    _dyb_sort: 1
+  - description: Analyse approfondie de logs applicatifs et systèmes (volumétrie élevée)
+    _dyb_id: 103974115
+    _dyb_sort: 2
+  - description: Stabilisation de plateformes soumises à des pics allant jusqu’à 1 000 connexions SSH simultanées
+    _dyb_id: 103974116
+    _dyb_sort: 3
+  - description: "Optimisation mémoire et tuning système, réduction significative des incidents OOM\t•\tAutomatisation des tâches d’exploitation et de diagnostic via Bash et Python"
+    _dyb_id: 103974117
+    _dyb_sort: 4
+  - description: Amélioration du monitoring et de l’observabilité, réduction du bruit d’alertes
+    _dyb_id: 103974118
+    _dyb_sort: 5
   environments:
-  - Cloudera
-  - Hadoop, HDFS, YARN, Spark, Kafka, Hive, HBase, Cloudera, Linux, Bash, Python, ELK, Prometheus, Grafana
+  - description: Cloudera
+    _dyb_id: 103627591
+    _dyb_sort: 0
+  - description: Hadoop, HDFS, YARN, Spark, Kafka, Hive, HBase, Cloudera, Linux, Bash, Python, ELK, Prometheus, Grafana
+    _dyb_id: 103627592
+    _dyb_sort: 1
+  _dyb_id: 19624337
+  _dyb_context_id: 103974119
+  _dyb_sort: 0
 - title: Data Engineer
   company: Jems
   location: ''
@@ -129,14 +148,31 @@ experience:
   end_date: 2024-11
   context: Réalisation d’un MVP de l’outil Platform Builder de JEMS, visant à concevoir une plateforme data cloud industrialisable et multi-cloud, permettant de générer et déployer des pipelines data standardisés sur AWS, Azure et Google Cloud Platform, avec un socle Apache Iceberg pour la gestion des tables analytiques.
   missions:
-  - Contribution à la conception et à la livraison du MVP Platform Builder
-  - Conception et développement de pipelines data cloud en PySpark
-  - Mise en œuvre de tables analytiques Apache Iceberg (évolution de schéma, historisation / time travel)
-  - Structuration des chaînes ingestion → transformation
-  - Développement de jobs Spark industrialisés (hors notebooks exploratoires)
-  - Déploiement et validation des pipelines sur AWS, Azure et GCP
+  - description: Contribution à la conception et à la livraison du MVP Platform Builder
+    _dyb_id: 103974798
+    _dyb_sort: 0
+  - description: Conception et développement de pipelines data cloud en PySpark
+    _dyb_id: 103974799
+    _dyb_sort: 1
+  - description: Mise en œuvre de tables analytiques Apache Iceberg (évolution de schéma, historisation / time travel)
+    _dyb_id: 103974800
+    _dyb_sort: 2
+  - description: Structuration des chaînes ingestion → transformation
+    _dyb_id: 103974801
+    _dyb_sort: 3
+  - description: Développement de jobs Spark industrialisés (hors notebooks exploratoires)
+    _dyb_id: 103974802
+    _dyb_sort: 4
+  - description: Déploiement et validation des pipelines sur AWS, Azure et GCP
+    _dyb_id: 103974803
+    _dyb_sort: 5
   environments:
-  - Platform Builder (JEMS), Apache Iceberg, Python, PySpark, Apache Spark, AWS, Azure, Google Cloud Platform, Data Pipelines, Industrialisation, Git
+  - description: Platform Builder (JEMS), Apache Iceberg, Python, PySpark, Apache Spark, AWS, Azure, Google Cloud Platform, Data Pipelines, Industrialisation, Git
+    _dyb_id: 103974805
+    _dyb_sort: 0
+  _dyb_id: 19682640
+  _dyb_context_id: 103974804
+  _dyb_sort: 1
 - title: Développeur IA
   company: IFIP
   location: ''
@@ -144,15 +180,22 @@ experience:
   end_date: '2023'
   context: Étude sur la prévision de la production dans le secteur de la viande porcine en France. Les données utilisées proviennent d'un organisme, BDPORC qui est chargé par l'état, pour des raisons de traçabilité de collecter les mouvements d'animaux avec environ 800 000 à 900 000 enregistrements par an.
   missions:
-  - '- Développement d''un pipeline de traitement des données, qui comprend la sélection des caractéristiques, la transformation des caractéristiques, et l''entraînement des modèles de prévision
+  - description: '- Développement d''un pipeline de traitement des données, qui comprend la sélection des caractéristiques, la transformation des caractéristiques, et l''entraînement des modèles de prévision
 
-    - Comparaison de la performance de plusieurs modèles de prévision de séries temporelles, tels que DeepAR, Prophet, HRHN, N-BEATS, DSTP-RNN, TFT, N-HITS, Catboost, XGBoost, LightGBM et Croston, en utilisant la métrique MAPE (Mean Absolute Percentage Error)
+      - Comparaison de la performance de plusieurs modèles de prévision de séries temporelles, tels que DeepAR, Prophet, HRHN, N-BEATS, DSTP-RNN, TFT, N-HITS, Catboost, XGBoost, LightGBM et Croston, en utilisant la métrique MAPE (Mean Absolute Percentage Error)
 
-    - Obtention de la meilleure performance avec Catboost avec une MAPE de 3,45%'
+      - Obtention de la meilleure performance avec Catboost avec une MAPE de 3,45%'
+    _dyb_id: 102280601
+    _dyb_sort: 0
   environments:
-  - '- Azure, Pytorch, Tensorflow, Scikit-learn, R Studio
+  - description: '- Azure, Pytorch, Tensorflow, Scikit-learn, R Studio
 
-    - Streamlit, docker, kedro, optuna, ray, mlflow, great expectations, wandb'
+      - Streamlit, docker, kedro, optuna, ray, mlflow, great expectations, wandb'
+    _dyb_id: 102280603
+    _dyb_sort: 0
+  _dyb_id: 19318750
+  _dyb_context_id: 102280602
+  _dyb_sort: 2
 - title: Data Scientist
   company: Ikkoe
   location: ''
@@ -160,13 +203,20 @@ experience:
   end_date: '2021'
   context: L'entreprise Ikkoe est une entreprise B2B se situant dans la personnalisation de produits de luxe. Elle a développé un configurateur qui permet aux consommateurs de ses clients de personnaliser leurs produits avec des messages ou des images (broderie, imprimerie...).
   missions:
-  - '- Conception et mise en œuvre d''une API NLP d''aide/inspiration à la rédaction de messages pour la personnalisation de produits
+  - description: '- Conception et mise en œuvre d''une API NLP d''aide/inspiration à la rédaction de messages pour la personnalisation de produits
 
-    - Fine tuning de différents modèles sur un corpus de textes suggérant l''aventure, les activités de plein air pour la marque AIGLE
+      - Fine tuning de différents modèles sur un corpus de textes suggérant l''aventure, les activités de plein air pour la marque AIGLE
 
-    - R&D génération de formes 3D à partir d''une seule image 2D'
+      - R&D génération de formes 3D à partir d''une seule image 2D'
+    _dyb_id: 102280604
+    _dyb_sort: 0
   environments:
-  - '- AWS, GPT-2, GPT-3, BERT'
+  - description: '- AWS, GPT-2, GPT-3, BERT'
+    _dyb_id: 102280606
+    _dyb_sort: 0
+  _dyb_id: 19318751
+  _dyb_context_id: 102280605
+  _dyb_sort: 3
 - title: Sales Responsible
   company: Syspertec Group
   location: ''
@@ -174,17 +224,24 @@ experience:
   end_date: '2017'
   context: Management de transition dans le cadre du rachat de Blondeau Informatique par le groupe Syspertec (Continuité des contrats et intégration du personnel).
   missions:
-  - '- Développement de l''offre z/Heritage ("Rejuvenate the Mainframe") auprès d''une clientèle Grands Comptes (banques, assurances, administration)
+  - description: '- Développement de l''offre z/Heritage ("Rejuvenate the Mainframe") auprès d''une clientèle Grands Comptes (banques, assurances, administration)
 
-    - Collaboration avec des clients de grande envergure pour moderniser et optimiser leurs systèmes mainframe
+      - Collaboration avec des clients de grande envergure pour moderniser et optimiser leurs systèmes mainframe
 
-    - Élaboration de stratégies de transformation digitale adaptées aux besoins spécifiques de chaque client
+      - Élaboration de stratégies de transformation digitale adaptées aux besoins spécifiques de chaque client
 
-    - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
+      - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
+    _dyb_id: 102280607
+    _dyb_sort: 0
   environments:
-  - '- z/OS, Cobol, Assembleur, Principia
+  - description: '- z/OS, Cobol, Assembleur, Principia
 
-    - Outils maison d''analyse de code'
+      - Outils maison d''analyse de code'
+    _dyb_id: 102280609
+    _dyb_sort: 0
+  _dyb_id: 19318752
+  _dyb_context_id: 102280608
+  _dyb_sort: 4
 - title: Directeur du Centre de Service et de Formation
   company: Blondeau Informatique
   location: ''
@@ -192,17 +249,24 @@ experience:
   end_date: '2017'
   context: Sur la base d'un constat de raréfaction des compétences de maintien en condition opérationnelle des applications legacy de nos entreprises clientes (volet formation et support technique de l'offre z/Heritage).
   missions:
-  - '- Animation du réseau de collaborateurs et de formateurs indépendants
+  - description: '- Animation du réseau de collaborateurs et de formateurs indépendants
 
-    - Gestion et coordination d''équipes de collaborateurs et de formateurs pour assurer la qualité des services et des formations
+      - Gestion et coordination d''équipes de collaborateurs et de formateurs pour assurer la qualité des services et des formations
 
-    - Mise en place et supervision de programmes de formation adaptés aux besoins des clients
+      - Mise en place et supervision de programmes de formation adaptés aux besoins des clients
 
-    - Formation des programmeurs sur les langages anciens comme COBOL et Assembleur pour pallier la raréfaction des compétences mainframe
+      - Formation des programmeurs sur les langages anciens comme COBOL et Assembleur pour pallier la raréfaction des compétences mainframe
 
-    - En collaboration avec l''Université de Haute Alsace, création d''un diplôme universitaire Développeur Grand Système et d''une licence professionnelle de même intitulé inscrite au RNCP'
+      - En collaboration avec l''Université de Haute Alsace, création d''un diplôme universitaire Développeur Grand Système et d''une licence professionnelle de même intitulé inscrite au RNCP'
+    _dyb_id: 102280610
+    _dyb_sort: 0
   environments:
-  - '- z/OS, Assembleur, COBOL'
+  - description: '- z/OS, Assembleur, COBOL'
+    _dyb_id: 102280612
+    _dyb_sort: 0
+  _dyb_id: 19318753
+  _dyb_context_id: 102280611
+  _dyb_sort: 5
 - title: Directeur Général
   company: Blondeau Informatique
   location: ''
@@ -210,8 +274,13 @@ experience:
   end_date: '2014'
   context: Pilotage du rachat de l'entreprise par le groupe Syspertec.
   missions:
-  - '- Responsable des négociations et du processus de Due Diligence'
+  - description: '- Responsable des négociations et du processus de Due Diligence'
+    _dyb_id: 102280613
+    _dyb_sort: 0
   environments: []
+  _dyb_id: 19318754
+  _dyb_context_id: 102280614
+  _dyb_sort: 6
 - title: Directeur Général Délégué
   company: Blondeau Informatique
   location: ''
@@ -219,17 +288,24 @@ experience:
   end_date: '2012'
   context: Chargé du développement commercial et des ressources humaines dans le cadre des difficultés financières rencontrées par la précédente équipe de direction. Optimisation du P&L, définition d'un axe clair en nous recentrant sur le cœur d'activité qui nous a permis de renouer avec les bénéfices dès la première année.
   missions:
-  - '- Création de l''offre z/Heritage ("Rejuvenate the Mainframe")
+  - description: '- Création de l''offre z/Heritage ("Rejuvenate the Mainframe")
 
-    - Développement de l''offre z/Heritage ("Rejuvenate the Mainframe") auprès d''une clientèle Grands Comptes (banques, assurances, administration)
+      - Développement de l''offre z/Heritage ("Rejuvenate the Mainframe") auprès d''une clientèle Grands Comptes (banques, assurances, administration)
 
-    - Collaboration avec des clients de grande envergure pour moderniser et optimiser leurs systèmes mainframe
+      - Collaboration avec des clients de grande envergure pour moderniser et optimiser leurs systèmes mainframe
 
-    - Élaboration de stratégies de transformation digitale adaptées aux besoins spécifiques de chaque client
+      - Élaboration de stratégies de transformation digitale adaptées aux besoins spécifiques de chaque client
 
-    - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
+      - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
+    _dyb_id: 102280615
+    _dyb_sort: 0
   environments:
-  - '- z/OS, Assembleur, COBOL, Unix System Services'
+  - description: '- z/OS, Assembleur, COBOL, Unix System Services'
+    _dyb_id: 102280617
+    _dyb_sort: 0
+  _dyb_id: 19318755
+  _dyb_context_id: 102280616
+  _dyb_sort: 7
 - title: Chef de Projet
   company: LA POSTE DPI-QST
   location: ''
@@ -237,23 +313,30 @@ experience:
   end_date: '2007'
   context: Dans le cadre de l'externalisation de l'hébergement des moyens de production, renumérotation de l'adressage IP d'un millier de serveurs et équipements réseaux.
   missions:
-  - '- Définition de la stratégie de migration
+  - description: '- Définition de la stratégie de migration
 
-    - Étude de l''adhérence des socles et des applications aux adresses IP
+      - Étude de l''adhérence des socles et des applications aux adresses IP
 
-    - Mise en œuvre du DNS
+      - Mise en œuvre du DNS
 
-    - Intégration des consignes de migration par serveur
+      - Intégration des consignes de migration par serveur
 
-    - Mise en œuvre et suivi du planning
+      - Mise en œuvre et suivi du planning
 
-    - Pilotage des déploiements
+      - Pilotage des déploiements
 
-    - Responsable de l''équipe de support niveau 2 lors des relocalisations'
+      - Responsable de l''équipe de support niveau 2 lors des relocalisations'
+    _dyb_id: 102280618
+    _dyb_sort: 0
   environments:
-  - '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
+  - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
-    - Progiciels'
+      - Progiciels'
+    _dyb_id: 102280620
+    _dyb_sort: 0
+  _dyb_id: 19318756
+  _dyb_context_id: 102280619
+  _dyb_sort: 8
 - title: Interim Manager
   company: LA POSTE DPI-QST
   location: ''
@@ -261,11 +344,18 @@ experience:
   end_date: '2005'
   context: Responsable intérimaire de la division d'intégration "Socles Techniques" (15 personnes).
   missions:
-  - '- Mission de qualification et d''intégration des socles de production en informatique centralisée et distribuée'
+  - description: '- Mission de qualification et d''intégration des socles de production en informatique centralisée et distribuée'
+    _dyb_id: 102280621
+    _dyb_sort: 0
   environments:
-  - '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
+  - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
-    - Progiciels'
+      - Progiciels'
+    _dyb_id: 102280623
+    _dyb_sort: 0
+  _dyb_id: 19318757
+  _dyb_context_id: 102280622
+  _dyb_sort: 9
 - title: Formateur
   company: IBM Learning Services
   location: ''
@@ -273,23 +363,30 @@ experience:
   end_date: '2014'
   context: Dispense de cours inscrits au catalogue de formation des ingénieurs grands systèmes IBM.
   missions:
-  - '- z/OS Unix System Services : Concepts et fonctionnalités
+  - description: '- z/OS Unix System Services : Concepts et fonctionnalités
 
-    - z/OS Unix System Services : Mise en Œuvre
+      - z/OS Unix System Services : Mise en Œuvre
 
-    - TCP/IP Introduction
+      - TCP/IP Introduction
 
-    - TCP/IP Architecture
+      - TCP/IP Architecture
 
-    - OS/390 TCP/IP Mise en Œuvre
+      - OS/390 TCP/IP Mise en Œuvre
 
-    - OS/390 TCP/IP Applications
+      - OS/390 TCP/IP Applications
 
-    - Linux/VM Installation et Administration
+      - Linux/VM Installation et Administration
 
-    - Linux/VM Mise en Œuvre TCP/IP'
+      - Linux/VM Mise en Œuvre TCP/IP'
+    _dyb_id: 102280624
+    _dyb_sort: 0
   environments:
-  - '- z/OS, Linux, z/VM, TCP/IP'
+  - description: '- z/OS, Linux, z/VM, TCP/IP'
+    _dyb_id: 102280626
+    _dyb_sort: 0
+  _dyb_id: 19318758
+  _dyb_context_id: 102280625
+  _dyb_sort: 10
 - title: Architecte Système
   company: DNSCE
   location: ''
@@ -297,11 +394,18 @@ experience:
   end_date: '2003'
   context: La Direction Nationale des Statistiques du Commerce Extérieur était à l'origine le centre de traitement des données issues des déclarations douanières utilisées pour produire les indicateurs du commerce extérieur analysés et publiés par l'Insee.
   missions:
-  - '- Analyse de dimensionnement d''un système central OS/390 sous VM
+  - description: '- Analyse de dimensionnement d''un système central OS/390 sous VM
 
-    - Étude de migration de la base de données séquentielle propriétaire à cette plateforme vers Oracle'
+      - Étude de migration de la base de données séquentielle propriétaire à cette plateforme vers Oracle'
+    _dyb_id: 102280627
+    _dyb_sort: 0
   environments:
-  - '- OS/390, VM, Oracle'
+  - description: '- OS/390, VM, Oracle'
+    _dyb_id: 102280629
+    _dyb_sort: 0
+  _dyb_id: 19318759
+  _dyb_context_id: 102280628
+  _dyb_sort: 11
 - title: Architecte Système
   company: Blondeau Informatique
   location: ''
@@ -309,11 +413,18 @@ experience:
   end_date: '2002'
   context: Suite à la commercialisation de solutions Linux sur Mainframe par IBM, mise à disposition d'une plateforme de tests pour divers clients grands comptes dont France Telecom.
   missions:
-  - '- Spécification et mise en œuvre d''une infrastructure d''hébergement de projets de R&D sur la plateforme Linux sous VM
+  - description: '- Spécification et mise en œuvre d''une infrastructure d''hébergement de projets de R&D sur la plateforme Linux sous VM
 
-    - Réalisation d''une plateforme de démonstration de Webmail et JEE sous Debian S/390 présentée à Linux Expo Paris (Blondeau Informatique/Alcove)'
+      - Réalisation d''une plateforme de démonstration de Webmail et JEE sous Debian S/390 présentée à Linux Expo Paris (Blondeau Informatique/Alcove)'
+    _dyb_id: 102280630
+    _dyb_sort: 0
   environments:
-  - '- OS/390, VM, Oracle'
+  - description: '- OS/390, VM, Oracle'
+    _dyb_id: 102280632
+    _dyb_sort: 0
+  _dyb_id: 19318760
+  _dyb_context_id: 102280631
+  _dyb_sort: 12
 - title: Chef de Projet/Ingénieur Système
   company: La Banque Postale
   location: ''
@@ -321,9 +432,16 @@ experience:
   end_date: '2000'
   context: Création d'un environnement Sysplex de tests et de pré-production au sein d'une équipe de 4 personnes.
   missions:
-  - '- Duplication des 4 partitions de la production et mise en place des processus de gestion des sources et de réplication des données de tests'
+  - description: '- Duplication des 4 partitions de la production et mise en place des processus de gestion des sources et de réplication des données de tests'
+    _dyb_id: 102280633
+    _dyb_sort: 0
   environments:
-  - '- OS/390, Sysplex, SMP/E, DB2, CICS, RACF, TWS'
+  - description: '- OS/390, Sysplex, SMP/E, DB2, CICS, RACF, TWS'
+    _dyb_id: 102280635
+    _dyb_sort: 0
+  _dyb_id: 19318761
+  _dyb_context_id: 102280634
+  _dyb_sort: 13
 - title: Administrateur Système et Réseau
   company: Groupe Yves Rocher
   location: ''
@@ -331,13 +449,20 @@ experience:
   end_date: '1999'
   context: Administration du SI central (Fichier clients, gestion des commandes pour ce client leader de la VPC).
   missions:
-  - '- Étude de restructuration de la bandothèque
+  - description: '- Étude de restructuration de la bandothèque
 
-    - Conception et réalisation d''un journal de bord pour le bandothéquaire en C/shell/Motif
+      - Conception et réalisation d''un journal de bord pour le bandothéquaire en C/shell/Motif
 
-    - Étude et mise en œuvre du Disaster Recovery Plan'
+      - Étude et mise en œuvre du Disaster Recovery Plan'
+    _dyb_id: 102280636
+    _dyb_sort: 0
   environments:
-  - '- OS/390, HP-UX, C, DB2, CICS'
+  - description: '- OS/390, HP-UX, C, DB2, CICS'
+    _dyb_id: 102280638
+    _dyb_sort: 0
+  _dyb_id: 19318762
+  _dyb_context_id: 102280637
+  _dyb_sort: 14
 - title: Analyste d'Exploitation
   company: Groupe Yves Rocher
   location: ''
@@ -345,46 +470,69 @@ experience:
   end_date: '1997'
   context: ''
   missions:
-  - '- Surveillance du plan et gestion des incidents
+  - description: '- Surveillance du plan et gestion des incidents
 
-    - Conception d''un script d''automatisation du suivi et du contrôle de l''exécution des travaux'
+      - Conception d''un script d''automatisation du suivi et du contrôle de l''exécution des travaux'
+    _dyb_id: 102280639
+    _dyb_sort: 0
   environments:
-  - '- OS/390, HP-UX, TWS, HSM, STORAGETEK'
-education: []
-projects: []
+  - description: '- OS/390, HP-UX, TWS, HSM, STORAGETEK'
+    _dyb_id: 102280640
+    _dyb_sort: 0
+  _dyb_id: 19318763
+  _dyb_context_id: null
+  _dyb_sort: 15
 certifications:
 - name: Administrateur Hadoop
   issuer: DataScientest
   date: Mai 2024
   credential_url: ''
+  _dyb_id: 1292124
+  _dyb_sort: 0
 - name: Big Data Machine Learning with Apache Spark
   issuer: CDOSS
   date: Mars 2024
   credential_url: ''
+  _dyb_id: 1292125
+  _dyb_sort: 1
 - name: Hadoop Cluster Installation and Administration
   issuer: CDOSS
   date: Mars 2024
   credential_url: ''
+  _dyb_id: 1292126
+  _dyb_sort: 2
 - name: Managing Big Data in Hadoop Cluster
   issuer: CDOSS
   date: Mars 2024
   credential_url: ''
+  _dyb_id: 1292127
+  _dyb_sort: 3
 - name: Développeur en Intelligence artificielle
   issuer: Microsoft/Simplon
   date: Mars 2023
   credential_url: ''
+  _dyb_id: 1292128
+  _dyb_sort: 4
 - name: 'Microsoft Certified: Azure AI Fundamentals'
   issuer: Microsoft
   date: Mars 2022
   credential_url: ''
+  _dyb_id: 1292129
+  _dyb_sort: 5
 - name: 'Microsoft Certified: Azure Fundamentals'
   issuer: Microsoft
   date: Mars 2022
   credential_url: ''
+  _dyb_id: 1292130
+  _dyb_sort: 6
 - name: Ingénieur système OS/390
   issuer: IBM Learning Services
   date: '1999'
   credential_url: ''
+  _dyb_id: 1292131
+  _dyb_sort: 7
 languages:
-- language: EN
+- language: Anglais
   proficiency: Bilingue (95%)
+  _dyb_id: 2519592
+  _dyb_culture: en
