@@ -19,7 +19,7 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
     with open(original_json_path, 'w', encoding='utf-8') as f:
         json.dump(dyb_data, f, ensure_ascii=False, indent=2)
     
-    # Build simplified structure
+    # Build simplified structure with full metadata preservation
     showcase = {
         'personal_info': {
             'name': f"{dyb_data['owner']['firstname']} {dyb_data['owner']['lastname']}",
@@ -35,7 +35,46 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
         'skills': [],
         'experience': [],
         'certifications': [],
-        'languages': []
+        'languages': [],
+        # Preserve ALL DoYouBuzz metadata for perfect round-trip
+        '_doyoubuzz_metadata': {
+            'id': dyb_data.get('id'),
+            'url': dyb_data.get('url'),
+            'color': dyb_data.get('color'),
+            'completion': dyb_data.get('completion'),
+            'culture': dyb_data.get('culture'),
+            'language': dyb_data.get('language'),
+            'description': dyb_data.get('description'),
+            'createdAt': dyb_data.get('createdAt'),
+            'updatedAt': dyb_data.get('updatedAt'),
+            'published': dyb_data.get('published'),
+            'uploaded': dyb_data.get('uploaded'),
+            'referenced': dyb_data.get('referenced'),
+            'hidden': dyb_data.get('hidden'),
+            'main': dyb_data.get('main'),
+            'mainCvGroup': dyb_data.get('mainCvGroup'),
+            'protected': dyb_data.get('protected'),
+            'passwordProtected': dyb_data.get('passwordProtected'),
+            'renderingMode': dyb_data.get('renderingMode'),
+            'yearsExperience': dyb_data.get('yearsExperience'),
+            'availability': dyb_data.get('availability'),
+            'options': dyb_data.get('options'),
+            'download': dyb_data.get('download'),
+            'positions': dyb_data.get('positions'),
+            'professionalPosition': dyb_data.get('professionalPosition'),
+            'tags': dyb_data.get('tags'),
+            'educations': dyb_data.get('educations'),
+            'events': dyb_data.get('events'),
+            'interests': dyb_data.get('interests'),
+            'portfolios': dyb_data.get('portfolios'),
+            # Preserve full owner and contacts objects (not just extracted fields)
+            'owner_full': dyb_data.get('owner'),
+            'contacts_full': dyb_data.get('contacts'),
+            'presentation_full': dyb_data.get('presentation'),
+            'title_full': dyb_data.get('title'),
+            # Preserve skills as-is (too complex to edit, has many nested IDs)
+            'skills_full': dyb_data.get('skills')
+        }
     }
     
     # Convert skills
@@ -109,10 +148,18 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
             'results': results,
             'objectives': objectives,
             'environments': environments,
-            # Preserve DoYouBuzz metadata for round-trip
+            # Preserve ALL DoYouBuzz metadata for perfect round-trip
             '_dyb_id': exp.get('id'),
             '_dyb_context_id': context_id,
-            '_dyb_sort': exp.get('sort', 0)
+            '_dyb_sort': exp.get('sort', 0),
+            '_dyb_views': exp.get('$views'),
+            '_dyb_home': exp.get('home'),
+            '_dyb_slug': exp.get('slug'),
+            '_dyb_start': exp.get('start'),
+            '_dyb_end': exp.get('end'),
+            '_dyb_logo': exp.get('logo'),
+            '_dyb_logos': exp.get('logos'),
+            '_dyb_range_full': exp.get('range')  # Preserve full range object
         }
         
         showcase['experience'].append(experience_entry)
@@ -128,8 +175,11 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
             'issuer': issuer,
             'date': cert.get('obtainedAt', ''),
             'credential_url': '',
+            # Preserve ALL metadata
             '_dyb_id': cert.get('id'),
-            '_dyb_sort': cert.get('sort', 0)
+            '_dyb_sort': cert.get('sort', 0),
+            '_dyb_views': cert.get('$views'),
+            '_dyb_full': cert  # Preserve entire object
         }
         showcase['certifications'].append(cert_entry)
     
@@ -142,8 +192,13 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
         lang_entry = {
             'language': lang_name,
             'proficiency': f"{lang.get('details', '')} ({lang.get('level', '')}%)".strip(),
+            # Preserve ALL metadata
             '_dyb_id': lang.get('id'),
-            '_dyb_culture': lang.get('culture')
+            '_dyb_culture': lang.get('culture'),
+            '_dyb_level': lang.get('level'),
+            '_dyb_details': lang.get('details'),
+            '_dyb_sort': lang.get('sort'),
+            '_dyb_full': lang  # Preserve entire object
         }
         showcase['languages'].append(lang_entry)
     
@@ -160,8 +215,51 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
     with open(yaml_path, 'r', encoding='utf-8') as f:
         showcase = yaml.safe_load(f)
     
-    # Load original JSON as template if available
-    if original_json_path and Path(original_json_path).exists():
+    # Start with metadata if available, otherwise load original or create minimal
+    if '_doyoubuzz_metadata' in showcase:
+        # Use preserved metadata as base
+        meta = showcase['_doyoubuzz_metadata']
+        dyb_data = {
+            'id': meta.get('id'),
+            'url': meta.get('url'),
+            'color': meta.get('color'),
+            'completion': meta.get('completion'),
+            'culture': meta.get('culture'),
+            'language': meta.get('language'),
+            'description': meta.get('description'),
+            'createdAt': meta.get('createdAt'),
+            'updatedAt': meta.get('updatedAt'),
+            'published': meta.get('published'),
+            'uploaded': meta.get('uploaded'),
+            'referenced': meta.get('referenced'),
+            'hidden': meta.get('hidden'),
+            'main': meta.get('main'),
+            'mainCvGroup': meta.get('mainCvGroup'),
+            'protected': meta.get('protected'),
+            'passwordProtected': meta.get('passwordProtected'),
+            'renderingMode': meta.get('renderingMode'),
+            'yearsExperience': meta.get('yearsExperience'),
+            'availability': meta.get('availability'),
+            'options': meta.get('options'),
+            'download': meta.get('download'),
+            'positions': meta.get('positions'),
+            'professionalPosition': meta.get('professionalPosition'),
+            'tags': meta.get('tags'),
+            'educations': meta.get('educations', []),
+            'events': meta.get('events', []),
+            'interests': meta.get('interests', []),
+            'portfolios': meta.get('portfolios', []),
+            'owner': meta.get('owner_full', {}),
+            'contacts': meta.get('contacts_full', {}),
+            'presentation': meta.get('presentation_full', {}),
+            'title': meta.get('title_full', {}),
+            'experiences': [],
+            'skills': [],
+            'certificates': [],
+            'languageSkills': {"elements": []}
+        }
+    elif original_json_path and Path(original_json_path).exists():
+        # Load original JSON as template
         with open(original_json_path, 'r', encoding='utf-8') as f:
             dyb_data = json.load(f)
     else:
@@ -177,30 +275,42 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
             "contacts": {"address": {}}
         }
     
-    # Update personal info
+    # Update personal info - only update editable fields, preserve metadata
     if 'personal_info' in showcase:
         pi = showcase['personal_info']
         names = pi.get('name', '').split(' ', 1)
+        if 'owner' not in dyb_data:
+            dyb_data['owner'] = {}
         dyb_data['owner']['firstname'] = names[0] if len(names) > 0 else ''
         dyb_data['owner']['lastname'] = names[1] if len(names) > 1 else ''
         dyb_data['owner']['login'] = pi.get('email', '')
         dyb_data['owner']['url'] = pi.get('website', '')
+        
+        if 'title' not in dyb_data:
+            dyb_data['title'] = {}
         dyb_data['title']['value'] = pi.get('title', '')
+        
+        if 'contacts' not in dyb_data:
+            dyb_data['contacts'] = {'address': {}}
+        if 'address' not in dyb_data['contacts']:
+            dyb_data['contacts']['address'] = {}
         dyb_data['contacts']['address']['country'] = pi.get('location', '')
     
-    # Update summary
+    # Update summary - preserve other presentation fields
+    if 'presentation' not in dyb_data:
+        dyb_data['presentation'] = {}
     dyb_data['presentation']['text'] = showcase.get('summary', '')
     
     # Update experiences
     dyb_experiences = []
     for idx, exp in enumerate(showcase.get('experience', [])):
-        # Parse dates
-        start_parts = exp.get('start_date', '').split('-')
-        end_parts = exp.get('end_date', '').split('-')
-        
-        dyb_exp = {
-            "$views": [],
-            "range": {
+        # Parse dates (use preserved range if available, otherwise parse from simplified fields)
+        if exp.get('_dyb_range_full'):
+            range_obj = exp['_dyb_range_full']
+        else:
+            start_parts = exp.get('start_date', '').split('-')
+            end_parts = exp.get('end_date', '').split('-')
+            range_obj = {
                 "start": {
                     "year": start_parts[0] if len(start_parts) > 0 else "",
                     "month": start_parts[1] if len(start_parts) > 1 else ""
@@ -209,20 +319,34 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
                     "year": end_parts[0] if len(end_parts) > 0 else "",
                     "month": end_parts[1] if len(end_parts) > 1 else ""
                 }
-            },
+            }
+        
+        dyb_exp = {
+            "$views": exp.get('_dyb_views', []),
+            "range": range_obj,
             "id": exp.get('_dyb_id', 19000000 + idx),
             "company": exp.get('company', ''),
             "city": exp.get('location', ''),
-            "home": True,
+            "home": exp.get('_dyb_home', True),
             "sort": exp.get('_dyb_sort', idx),
             "title": exp.get('title', ''),
-            "slug": exp.get('company', '').lower().replace(' ', '-'),
+            "slug": exp.get('_dyb_slug', exp.get('company', '').lower().replace(' ', '-')),
             "missions": [],
             "results": [],
             "objectives": [],
             "contexts": [],
             "environments": []
         }
+        
+        # Preserve additional metadata fields if present
+        if exp.get('_dyb_start'):
+            dyb_exp['start'] = exp['_dyb_start']
+        if exp.get('_dyb_end'):
+            dyb_exp['end'] = exp['_dyb_end']
+        if exp.get('_dyb_logo'):
+            dyb_exp['logo'] = exp['_dyb_logo']
+        if exp.get('_dyb_logos'):
+            dyb_exp['logos'] = exp['_dyb_logos']
         
         # Add missions
         for mis_idx, mission in enumerate(exp.get('missions', [])):
@@ -316,22 +440,56 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
     
     dyb_data['experiences'] = dyb_experiences
     
-    # Update certifications
+    # Update certifications - preserve all metadata
     dyb_certs = []
     for idx, cert in enumerate(showcase.get('certifications', [])):
-        name = cert.get('name', '')
-        issuer = cert.get('issuer', '')
-        if issuer and issuer not in name:
-            name = f"{name} - {issuer}"
-        
-        dyb_certs.append({
-            "id": cert.get('_dyb_id', 1000000 + idx),
-            "name": name,
-            "obtainedAt": cert.get('date', ''),
-            "sort": cert.get('_dyb_sort', idx)
-        })
+        # If we have the full preserved object, use it as-is (name/issuer not editable)
+        if cert.get('_dyb_full'):
+            cert_obj = cert['_dyb_full'].copy()
+            # Only update the date field (editable)
+            cert_obj['obtainedAt'] = cert.get('date', '')
+            dyb_certs.append(cert_obj)
+        else:
+            # Create new certificate
+            name = cert.get('name', '')
+            issuer = cert.get('issuer', '')
+            if issuer and issuer not in name:
+                name = f"{name} - {issuer}"
+            
+            dyb_certs.append({
+                "$views": cert.get('_dyb_views', []),
+                "id": cert.get('_dyb_id', 1000000 + idx),
+                "name": name,
+                "obtainedAt": cert.get('date', ''),
+                "sort": cert.get('_dyb_sort', idx)
+            })
     
     dyb_data['certificates'] = dyb_certs
+    
+    # Update languages - preserve all metadata
+    dyb_langs = []
+    for idx, lang in enumerate(showcase.get('languages', [])):
+        # If we have the full preserved object, use it
+        if lang.get('_dyb_full'):
+            dyb_langs.append(lang['_dyb_full'])
+        else:
+            # Create new language entry
+            dyb_langs.append({
+                "id": lang.get('_dyb_id', 2000000 + idx),
+                "culture": lang.get('_dyb_culture', 'en'),
+                "level": lang.get('_dyb_level', 95),
+                "details": lang.get('_dyb_details', ''),
+                "sort": lang.get('_dyb_sort', idx)
+            })
+    
+    if dyb_langs:
+        if 'languageSkills' not in dyb_data:
+            dyb_data['languageSkills'] = {}
+        dyb_data['languageSkills']['elements'] = dyb_langs
+    
+    # Restore skills from metadata (not editable in simplified view)
+    if '_doyoubuzz_metadata' in showcase and showcase['_doyoubuzz_metadata'].get('skills_full'):
+        dyb_data['skills'] = showcase['_doyoubuzz_metadata']['skills_full']
     
     # Save to JSON
     with open(json_path, 'w', encoding='utf-8') as f:
