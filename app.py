@@ -112,7 +112,7 @@ else:
     # Summary Section
     elif section == "Summary":
         st.header("📝 Professional Summary")
-        data['summary'] = st.text_area("Summary", data.get('summary', ''), height=200)
+        data['summary'] = st.text_area("Summary", data.get('summary', ''), height=300)
     
     # Skills Section
     elif section == "Skills":
@@ -178,7 +178,7 @@ else:
                 'location': st.text_input("Location"),
                 'start_date': st.text_input("Start Date (e.g., 2024-01)"),
                 'end_date': st.text_input("End Date (e.g., 2024-12 or 'Present')"),
-                'context': st.text_area("Context / Description"),
+                'context': st.text_area("Context / Description", height=150),
                 'missions': [],
                 'environments': []
             }
@@ -202,7 +202,7 @@ else:
                     exp['start_date'] = st.text_input("Start Date", exp.get('start_date', ''), key=f"exp_start_{idx}")
                     exp['end_date'] = st.text_input("End Date", exp.get('end_date', ''), key=f"exp_end_{idx}")
                 
-                exp['context'] = st.text_area("Context / Description", exp.get('context', exp.get('description', '')), key=f"exp_ctx_{idx}", height=100)
+                exp['context'] = st.text_area("Context / Description", exp.get('context', exp.get('description', '')), key=f"exp_ctx_{idx}", height=150)
                 
                 # Missions
                 st.markdown("**Missions:**")
@@ -212,19 +212,32 @@ else:
                 new_missions = []
                 
                 for mis_idx, mission in enumerate(missions):
+                    # Handle both dict (with _dyb_id) and string formats
+                    if isinstance(mission, dict):
+                        mission_text = mission.get('description', '')
+                        mission_meta = {'_dyb_id': mission.get('_dyb_id'), '_dyb_sort': mission.get('_dyb_sort', mis_idx)}
+                    else:
+                        mission_text = str(mission)
+                        mission_meta = {}
+                    
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_mis = st.text_area(f"Mission {mis_idx + 1}", mission, key=f"mis_{idx}_{mis_idx}", height=60, label_visibility="collapsed")
+                        new_mis = st.text_area(f"Mission {mis_idx + 1}", mission_text, key=f"mis_{idx}_{mis_idx}", height=120, label_visibility="collapsed")
                         if new_mis:
-                            new_missions.append(new_mis)
+                            # Preserve metadata if it exists
+                            if mission_meta.get('_dyb_id'):
+                                new_missions.append({'description': new_mis, **mission_meta})
+                            else:
+                                new_missions.append(new_mis)
                     with col2:
+                        st.markdown("<br>", unsafe_allow_html=True)  # Align delete button
                         if st.button("🗑️", key=f"del_mis_{idx}_{mis_idx}"):
                             pass
                 
                 exp['missions'] = new_missions
                 
                 # Add new mission
-                new_mis_input = st.text_area("Add new mission", key=f"new_mis_{idx}")
+                new_mis_input = st.text_area("Add new mission", key=f"new_mis_{idx}", height=120)
                 if st.button("Add Mission", key=f"add_mis_{idx}") and new_mis_input:
                     exp['missions'].append(new_mis_input)
                     st.rerun()
@@ -237,11 +250,23 @@ else:
                 new_envs = []
                 
                 for env_idx, environment in enumerate(environments):
+                    # Handle both dict (with _dyb_id) and string formats
+                    if isinstance(environment, dict):
+                        env_text = environment.get('description', '')
+                        env_meta = {'_dyb_id': environment.get('_dyb_id'), '_dyb_sort': environment.get('_dyb_sort', env_idx)}
+                    else:
+                        env_text = str(environment)
+                        env_meta = {}
+                    
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_env = st.text_input(f"Environment {env_idx + 1}", environment, key=f"env_{idx}_{env_idx}", label_visibility="collapsed")
+                        new_env = st.text_area(f"Environment {env_idx + 1}", env_text, key=f"env_{idx}_{env_idx}", height=100, label_visibility="collapsed")
                         if new_env:
-                            new_envs.append(new_env)
+                            # Preserve metadata if it exists
+                            if env_meta.get('_dyb_id'):
+                                new_envs.append({'description': new_env, **env_meta})
+                            else:
+                                new_envs.append(new_env)
                     with col2:
                         if st.button("🗑️", key=f"del_env_{idx}_{env_idx}"):
                             pass
@@ -249,7 +274,7 @@ else:
                 exp['environments'] = new_envs
                 
                 # Add new environment
-                new_env_input = st.text_input("Add new environment", key=f"new_env_{idx}")
+                new_env_input = st.text_area("Add new environment", key=f"new_env_{idx}", height=100)
                 if st.button("Add Environment", key=f"add_env_{idx}") and new_env_input:
                     exp['environments'].append(new_env_input)
                     st.rerun()
