@@ -135,7 +135,7 @@ else:
                 for item_idx, item in enumerate(items):
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_item = st.text_input(f"Skill", item, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
+                        new_item = st.text_input(f"Skill {item_idx + 1}", item, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
                         if new_item:
                             new_items.append(new_item)
                     with col2:
@@ -203,7 +203,7 @@ else:
                 for ach_idx, achievement in enumerate(achievements):
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_ach = st.text_area("", achievement, key=f"ach_{idx}_{ach_idx}", height=60, label_visibility="collapsed")
+                        new_ach = st.text_area(f"Achievement {ach_idx + 1}", achievement, key=f"ach_{idx}_{ach_idx}", height=60, label_visibility="collapsed")
                         if new_ach:
                             new_achievements.append(new_ach)
                     with col2:
