@@ -170,8 +170,9 @@ else:
                 'location': st.text_input("Location"),
                 'start_date': st.text_input("Start Date (e.g., 2024-01)"),
                 'end_date': st.text_input("End Date (e.g., 2024-12 or 'Present')"),
-                'description': st.text_area("Description"),
-                'achievements': []
+                'context': st.text_area("Context / Description"),
+                'missions': [],
+                'environments': []
             }
             
             if st.button("Add Experience") and new_exp['title'] and new_exp['company']:
@@ -193,30 +194,63 @@ else:
                     exp['start_date'] = st.text_input("Start Date", exp.get('start_date', ''), key=f"exp_start_{idx}")
                     exp['end_date'] = st.text_input("End Date", exp.get('end_date', ''), key=f"exp_end_{idx}")
                 
-                exp['description'] = st.text_area("Description", exp.get('description', ''), key=f"exp_desc_{idx}", height=100)
+                exp['context'] = st.text_area("Context / Description", exp.get('context', exp.get('description', '')), key=f"exp_ctx_{idx}", height=100)
                 
-                # Achievements
-                st.markdown("**Achievements:**")
-                achievements = exp.get('achievements', [])
-                new_achievements = []
+                # Missions
+                st.markdown("**Missions:**")
+                missions = exp.get('missions', exp.get('achievements', []))
+                if not isinstance(missions, list):
+                    missions = []
+                new_missions = []
                 
-                for ach_idx, achievement in enumerate(achievements):
+                for mis_idx, mission in enumerate(missions):
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_ach = st.text_area(f"Achievement {ach_idx + 1}", achievement, key=f"ach_{idx}_{ach_idx}", height=60, label_visibility="collapsed")
-                        if new_ach:
-                            new_achievements.append(new_ach)
+                        new_mis = st.text_area(f"Mission {mis_idx + 1}", mission, key=f"mis_{idx}_{mis_idx}", height=60, label_visibility="collapsed")
+                        if new_mis:
+                            new_missions.append(new_mis)
                     with col2:
-                        if st.button("🗑️", key=f"del_ach_{idx}_{ach_idx}"):
+                        if st.button("🗑️", key=f"del_mis_{idx}_{mis_idx}"):
                             pass
                 
-                exp['achievements'] = new_achievements
+                exp['missions'] = new_missions
                 
-                # Add new achievement
-                new_ach_input = st.text_area("Add new achievement", key=f"new_ach_{idx}")
-                if st.button("Add Achievement", key=f"add_ach_{idx}") and new_ach_input:
-                    exp['achievements'].append(new_ach_input)
+                # Add new mission
+                new_mis_input = st.text_area("Add new mission", key=f"new_mis_{idx}")
+                if st.button("Add Mission", key=f"add_mis_{idx}") and new_mis_input:
+                    exp['missions'].append(new_mis_input)
                     st.rerun()
+                
+                # Environments
+                st.markdown("**Technical Environments:**")
+                environments = exp.get('environments', [])
+                if not isinstance(environments, list):
+                    environments = []
+                new_envs = []
+                
+                for env_idx, environment in enumerate(environments):
+                    col1, col2 = st.columns([4, 1])
+                    with col1:
+                        new_env = st.text_input(f"Environment {env_idx + 1}", environment, key=f"env_{idx}_{env_idx}", label_visibility="collapsed")
+                        if new_env:
+                            new_envs.append(new_env)
+                    with col2:
+                        if st.button("🗑️", key=f"del_env_{idx}_{env_idx}"):
+                            pass
+                
+                exp['environments'] = new_envs
+                
+                # Add new environment
+                new_env_input = st.text_input("Add new environment", key=f"new_env_{idx}")
+                if st.button("Add Environment", key=f"add_env_{idx}") and new_env_input:
+                    exp['environments'].append(new_env_input)
+                    st.rerun()
+                
+                # Clean up old fields for backward compatibility
+                if 'achievements' in exp and 'missions' not in exp:
+                    exp['missions'] = exp.pop('achievements')
+                if 'description' in exp and 'context' not in exp:
+                    exp['context'] = exp.pop('description')
                 
                 # Delete experience
                 if st.button("🗑️ Delete Experience", key=f"del_exp_{idx}"):
