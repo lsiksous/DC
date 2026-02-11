@@ -131,6 +131,8 @@ experience:
   - description: Amélioration du monitoring et de l’observabilité, réduction du bruit d’alertes
     _dyb_id: 103974118
     _dyb_sort: 5
+  results: []
+  objectives: []
   environments:
   - description: Cloudera
     _dyb_id: 103627591
@@ -166,6 +168,8 @@ experience:
   - description: Déploiement et validation des pipelines sur AWS, Azure et GCP
     _dyb_id: 103974803
     _dyb_sort: 5
+  results: []
+  objectives: []
   environments:
   - description: Platform Builder (JEMS), Apache Iceberg, Python, PySpark, Apache Spark, AWS, Azure, Google Cloud Platform, Data Pipelines, Industrialisation, Git
     _dyb_id: 103974805
@@ -187,6 +191,8 @@ experience:
       - Obtention de la meilleure performance avec Catboost avec une MAPE de 3,45%'
     _dyb_id: 102280601
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- Azure, Pytorch, Tensorflow, Scikit-learn, R Studio
 
@@ -210,6 +216,8 @@ experience:
       - R&D génération de formes 3D à partir d''une seule image 2D'
     _dyb_id: 102280604
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- AWS, GPT-2, GPT-3, BERT'
     _dyb_id: 102280606
@@ -233,6 +241,8 @@ experience:
       - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
     _dyb_id: 102280607
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- z/OS, Cobol, Assembleur, Principia
 
@@ -260,6 +270,8 @@ experience:
       - En collaboration avec l''Université de Haute Alsace, création d''un diplôme universitaire Développeur Grand Système et d''une licence professionnelle de même intitulé inscrite au RNCP'
     _dyb_id: 102280610
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- z/OS, Assembleur, COBOL'
     _dyb_id: 102280612
@@ -277,6 +289,8 @@ experience:
   - description: '- Responsable des négociations et du processus de Due Diligence'
     _dyb_id: 102280613
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments: []
   _dyb_id: 19318754
   _dyb_context_id: 102280614
@@ -299,6 +313,8 @@ experience:
       - Sur la base d''un constat de raréfaction des compétences, reprise des patrimoines logiciels et recompilation des anciens programmes avec les compilateurs récents'
     _dyb_id: 102280615
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- z/OS, Assembleur, COBOL, Unix System Services'
     _dyb_id: 102280617
@@ -328,6 +344,8 @@ experience:
       - Responsable de l''équipe de support niveau 2 lors des relocalisations'
     _dyb_id: 102280618
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
@@ -347,6 +365,8 @@ experience:
   - description: '- Mission de qualification et d''intégration des socles de production en informatique centralisée et distribuée'
     _dyb_id: 102280621
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
@@ -380,6 +400,8 @@ experience:
       - Linux/VM Mise en Œuvre TCP/IP'
     _dyb_id: 102280624
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- z/OS, Linux, z/VM, TCP/IP'
     _dyb_id: 102280626
@@ -399,6 +421,8 @@ experience:
       - Étude de migration de la base de données séquentielle propriétaire à cette plateforme vers Oracle'
     _dyb_id: 102280627
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- OS/390, VM, Oracle'
     _dyb_id: 102280629
@@ -418,6 +442,8 @@ experience:
       - Réalisation d''une plateforme de démonstration de Webmail et JEE sous Debian S/390 présentée à Linux Expo Paris (Blondeau Informatique/Alcove)'
     _dyb_id: 102280630
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- OS/390, VM, Oracle'
     _dyb_id: 102280632
@@ -435,6 +461,8 @@ experience:
   - description: '- Duplication des 4 partitions de la production et mise en place des processus de gestion des sources et de réplication des données de tests'
     _dyb_id: 102280633
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- OS/390, Sysplex, SMP/E, DB2, CICS, RACF, TWS'
     _dyb_id: 102280635
@@ -456,6 +484,8 @@ experience:
       - Étude et mise en œuvre du Disaster Recovery Plan'
     _dyb_id: 102280636
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- OS/390, HP-UX, C, DB2, CICS'
     _dyb_id: 102280638
@@ -475,6 +505,8 @@ experience:
       - Conception d''un script d''automatisation du suivi et du contrôle de l''exécution des travaux'
     _dyb_id: 102280639
     _dyb_sort: 0
+  results: []
+  objectives: []
   environments:
   - description: '- OS/390, HP-UX, TWS, HSM, STORAGETEK'
     _dyb_id: 102280640

@@ -64,6 +64,24 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
                 '_dyb_sort': m.get('sort', 0)
             })
         
+        # Extract results
+        results = []
+        for r in exp.get('results', []):
+            results.append({
+                'description': r['description'],
+                '_dyb_id': r.get('id'),
+                '_dyb_sort': r.get('sort', 0)
+            })
+        
+        # Extract objectives
+        objectives = []
+        for o in exp.get('objectives', []):
+            objectives.append({
+                'description': o['description'],
+                '_dyb_id': o.get('id'),
+                '_dyb_sort': o.get('sort', 0)
+            })
+        
         # Extract context
         context = ''
         context_id = None
@@ -88,6 +106,8 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
             'end_date': f"{exp['range']['end'].get('year', '')}-{exp['range']['end'].get('month', '').zfill(2) if exp['range']['end'].get('month') else ''}".rstrip('-'),
             'context': context,
             'missions': missions,
+            'results': results,
+            'objectives': objectives,
             'environments': environments,
             # Preserve DoYouBuzz metadata for round-trip
             '_dyb_id': exp.get('id'),
@@ -222,6 +242,46 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
                 "description": desc,
                 "type": "mission"
             })
+        
+        # Add results
+        for res_idx, result in enumerate(exp.get('results', [])):
+            if isinstance(result, dict):
+                desc = result.get('description', '')
+                res_id = result.get('_dyb_id', 100000000 + idx * 100 + res_idx + 20)
+                res_sort = result.get('_dyb_sort', res_idx)
+            else:
+                desc = str(result)
+                res_id = 100000000 + idx * 100 + res_idx + 20
+                res_sort = res_idx
+            
+            if desc:  # Only add non-empty results
+                dyb_exp['results'].append({
+                    "toDel": False,
+                    "id": res_id,
+                    "sort": res_sort,
+                    "description": desc,
+                    "type": "result"
+                })
+        
+        # Add objectives
+        for obj_idx, objective in enumerate(exp.get('objectives', [])):
+            if isinstance(objective, dict):
+                desc = objective.get('description', '')
+                obj_id = objective.get('_dyb_id', 100000000 + idx * 100 + obj_idx + 30)
+                obj_sort = objective.get('_dyb_sort', obj_idx)
+            else:
+                desc = str(objective)
+                obj_id = 100000000 + idx * 100 + obj_idx + 30
+                obj_sort = obj_idx
+            
+            if desc:  # Only add non-empty objectives
+                dyb_exp['objectives'].append({
+                    "toDel": False,
+                    "id": obj_id,
+                    "sort": obj_sort,
+                    "description": desc,
+                    "type": "objective"
+                })
         
         # Add context
         if exp.get('context'):

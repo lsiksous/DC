@@ -180,6 +180,8 @@ else:
                 'end_date': st.text_input("End Date (e.g., 2024-12 or 'Present')"),
                 'context': st.text_area("Context / Description", height=150),
                 'missions': [],
+                'results': [],
+                'objectives': [],
                 'environments': []
             }
             
@@ -240,6 +242,82 @@ else:
                 new_mis_input = st.text_area("Add new mission", key=f"new_mis_{idx}", height=120)
                 if st.button("Add Mission", key=f"add_mis_{idx}") and new_mis_input:
                     exp['missions'].append(new_mis_input)
+                    st.rerun()
+                
+                # Results
+                st.markdown("**Results:**")
+                results = exp.get('results', [])
+                if not isinstance(results, list):
+                    results = []
+                new_results = []
+                
+                for res_idx, result in enumerate(results):
+                    # Handle both dict (with _dyb_id) and string formats
+                    if isinstance(result, dict):
+                        result_text = result.get('description', '')
+                        result_meta = {'_dyb_id': result.get('_dyb_id'), '_dyb_sort': result.get('_dyb_sort', res_idx)}
+                    else:
+                        result_text = str(result)
+                        result_meta = {}
+                    
+                    col1, col2 = st.columns([4, 1])
+                    with col1:
+                        new_res = st.text_area(f"Result {res_idx + 1}", result_text, key=f"res_{idx}_{res_idx}", height=100, label_visibility="collapsed")
+                        if new_res:
+                            # Preserve metadata if it exists
+                            if result_meta.get('_dyb_id'):
+                                new_results.append({'description': new_res, **result_meta})
+                            else:
+                                new_results.append(new_res)
+                    with col2:
+                        st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
+                        if st.button("🗑️", key=f"del_res_{idx}_{res_idx}"):
+                            pass
+                
+                exp['results'] = new_results
+                
+                # Add new result
+                new_res_input = st.text_area("Add new result", key=f"new_res_{idx}", height=100)
+                if st.button("Add Result", key=f"add_res_{idx}") and new_res_input:
+                    exp['results'].append(new_res_input)
+                    st.rerun()
+                
+                # Objectives
+                st.markdown("**Objectives:**")
+                objectives = exp.get('objectives', [])
+                if not isinstance(objectives, list):
+                    objectives = []
+                new_objectives = []
+                
+                for obj_idx, objective in enumerate(objectives):
+                    # Handle both dict (with _dyb_id) and string formats
+                    if isinstance(objective, dict):
+                        obj_text = objective.get('description', '')
+                        obj_meta = {'_dyb_id': objective.get('_dyb_id'), '_dyb_sort': objective.get('_dyb_sort', obj_idx)}
+                    else:
+                        obj_text = str(objective)
+                        obj_meta = {}
+                    
+                    col1, col2 = st.columns([4, 1])
+                    with col1:
+                        new_obj = st.text_area(f"Objective {obj_idx + 1}", obj_text, key=f"obj_{idx}_{obj_idx}", height=100, label_visibility="collapsed")
+                        if new_obj:
+                            # Preserve metadata if it exists
+                            if obj_meta.get('_dyb_id'):
+                                new_objectives.append({'description': new_obj, **obj_meta})
+                            else:
+                                new_objectives.append(new_obj)
+                    with col2:
+                        st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
+                        if st.button("🗑️", key=f"del_obj_{idx}_{obj_idx}"):
+                            pass
+                
+                exp['objectives'] = new_objectives
+                
+                # Add new objective
+                new_obj_input = st.text_area("Add new objective", key=f"new_obj_{idx}", height=100)
+                if st.button("Add Objective", key=f"add_obj_{idx}") and new_obj_input:
+                    exp['objectives'].append(new_obj_input)
                     st.rerun()
                 
                 # Environments
