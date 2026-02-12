@@ -10,3 +10,8 @@ ENV/
 *.json
 .DS_Store
 .streamlit/secrets.toml
+
+# Showcase variants (keep baseline only)
+showcases/*
+!showcases/baseline.yaml
+*_export.json

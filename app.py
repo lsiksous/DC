@@ -3,6 +3,7 @@ import yaml
 import json
 from pathlib import Path
 from datetime import datetime
+import showcase_manager as sm
 
 # Page config
 st.set_page_config(
@@ -11,8 +12,13 @@ st.set_page_config(
     layout="wide"
 )
 
-# File paths
-YAML_FILE = Path("showcase.yaml")
+# Initialize current showcase in session state
+if 'current_showcase' not in st.session_state:
+    showcases = sm.list_showcases()
+    st.session_state.current_showcase = showcases[0] if showcases else 'baseline'
+
+# Dynamic file paths based on current showcase
+YAML_FILE = sm.get_showcase_path(st.session_state.current_showcase)
 JSON_EXPORT = Path("showcase.json")
 
 # Load data
@@ -47,14 +53,55 @@ def export_json(data, file_path):
 
 # Initialize session state
 if 'data' not in st.session_state:
-    st.session_state.data = load_yaml(YAML_FILE)
+    st.session_state.data = sm.load_showcase(st.session_state.current_showcase)
 
 # Header
-st.title("📄 DoYouBuzz Showcase Editor")
+st.title(f"📄 DoYouBuzz Showcase Editor")
+st.caption(f"Editing: **{st.session_state.current_showcase}** {'(Baseline)' if st.session_state.current_showcase == 'baseline' else '(Variant)'}")
 st.markdown("---")
 
 # Sidebar for navigation and actions
 with st.sidebar:
+    # Showcase selector
+    st.header("🎯 Showcase")
+    showcases = sm.list_showcases()
+    
+    if showcases:
+        current_idx = showcases.index(st.session_state.current_showcase) if st.session_state.current_showcase in showcases else 0
+        selected = st.selectbox(
+            "Select showcase:",
+            showcases,
+            index=current_idx,
+            format_func=lambda x: f"📌 {x}" if x == 'baseline' else f"📄 {x}"
+        )
+        
+        if selected != st.session_state.current_showcase:
+            st.session_state.current_showcase = selected
+            st.session_state.data = sm.load_showcase(selected)
+            st.rerun()
+    
+    # Create variant button
+    with st.expander("➕ Create Variant"):
+        variant_name = st.text_input("Variant name (e.g., 'frontend', 'backend')")
+        variant_desc = st.text_input("Description (optional)")
+        if st.button("Create") and variant_name:
+            if sm.create_variant(st.session_state.current_showcase, variant_name, variant_desc):
+                st.success(f"✅ Created variant: {variant_name}")
+                st.session_state.current_showcase = variant_name
+                st.rerun()
+            else:
+                st.error("❌ Failed to create variant (may already exist)")
+    
+    # Delete button (only for variants)
+    if st.session_state.current_showcase != 'baseline':
+        if st.button("🗑️ Delete This Showcase", type="secondary"):
+            if st.checkbox("Confirm delete"):
+                if sm.delete_showcase(st.session_state.current_showcase):
+                    st.success("Deleted!")
+                    st.session_state.current_showcase = 'baseline'
+                    st.rerun()
+    
+    st.markdown("---")
     st.header("Navigation")
     section = st.radio(
         "Choose section to edit:",
@@ -65,8 +112,8 @@ with st.sidebar:
     st.header("Actions")
     
     if st.button("💾 Save to YAML", type="primary"):
-        if save_yaml(st.session_state.data, YAML_FILE):
-            st.success(f"✅ Saved successfully to {YAML_FILE.absolute()}!")
+        if sm.save_showcase(st.session_state.current_showcase, st.session_state.data):
+            st.success(f"✅ Saved {st.session_state.current_showcase} successfully!")
             st.info(f"File size: {YAML_FILE.stat().st_size} bytes")
         else:
             st.error("❌ Save failed!")
@@ -74,18 +121,22 @@ with st.sidebar:
     if st.button("📥 Export to DoYouBuzz JSON"):
         # Use doyoubuzz_converter for proper format
         import subprocess
+        yaml_path = str(sm.get_showcase_path(st.session_state.current_showcase))
+        export_name = f"{st.session_state.current_showcase}_export.json"
+        original_json = str(sm.get_showcase_path(st.session_state.current_showcase).with_suffix('.original.json'))
+        
         result = subprocess.run([
             'python', 'doyoubuzz_converter.py', 'yaml2json',
-            'showcase.yaml', 'showcase_export.json', 'showcase.original.json'
+            yaml_path, export_name, original_json
         ], capture_output=True, text=True)
         if result.returncode == 0:
-            st.success("✅ Exported to showcase_export.json (DoYouBuzz compatible)")
+            st.success(f"✅ Exported to {export_name} (DoYouBuzz compatible)")
         else:
             st.error(f"Export failed: {result.stderr}")
     
     if st.button("🔄 Reload from file"):
         # Force reload by clearing any cache
-        st.session_state.data = load_yaml(YAML_FILE)
+        st.session_state.data = sm.load_showcase(st.session_state.current_showcase)
         st.success("✅ Reloaded from file!")
         st.rerun()
 
