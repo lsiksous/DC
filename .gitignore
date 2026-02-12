@@ -14,4 +14,8 @@ ENV/
 # Showcase variants (keep baseline only)
 showcases/*
 !showcases/baseline.yaml
-*_export.json
+
+# Export and test files
+*_export*.json
+*TEST*.json
+old_exports/

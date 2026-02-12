@@ -4,10 +4,25 @@ personal_info:
   email: lsiksous@jems-group.com
   phone: ''
   location: FR
-  website: https://www.doyoubuzz.com/laurent-siksous/
+  website: ''
   linkedin: ''
   github: ''
-summary: Avec **29 années d'expérience**, ce profil combine une expertise unique en **architecture mainframe z/OS** et en **intelligence artificielle**. Spécialisé dans la **transformation digitale** des systèmes legacy pour les grands comptes (banques, assurances), il maîtrise parfaitement les technologies Big Data et Machine Learning. Son expérience de **direction d'entreprise** et de management d'équipes, associée à ses compétences techniques avancées en IA et Cloud, en fait un architecte IT de référence pour les projets de modernisation complexes.
+summary: 'Professionnel des systèmes et des plateformes data, mon parcours s’est construit de manière progressive autour d’un même fil conducteur : rendre des systèmes complexes fiables, exploitables et utiles dans la durée.
+
+
+  J’ai d’abord évolué dans des environnements systèmes critiques (mainframe, infrastructures centralisées), où j’ai acquis une forte culture de la production, de la fiabilité et de la gestion des contraintes opérationnelles. Cette première phase m’a permis de comprendre en profondeur les enjeux de disponibilité, de continuité de service et d’exploitation à grande échelle.
+
+
+  J’ai ensuite accompagné des phases de transformation et de modernisation, en prenant des responsabilités de pilotage, de structuration d’offres et de transmission de compétences, avant d’orienter mon expertise vers la data moderne.
+
+
+  Aujourd’hui, j’interviens à la fois sur la sécurisation de plateformes Big Data en production, notamment en environnement bancaire, et sur la construction de plateformes data cloud. Je conçois et industrialise des pipelines data (PySpark, Iceberg) au sein d’architectures multi-cloud (AWS, Azure, GCP), avec une approche orientée standardisation, réutilisabilité et valeur métier.
+
+
+  En parallèle, j’ai développé des compétences en Machine Learning, appliquées à des projets concrets de prévision et d’aide à la décision, en portant une attention particulière à la qualité des résultats, à leur compréhension métier et à leur mise en production.
+
+
+  Mon profil se situe ainsi à l’interface entre exploitation, data engineering et IA, avec une capacité à intervenir aussi bien sur des plateformes critiques existantes que sur la construction de solutions data modernes, fiables et durables.'
 skills:
 - category: IA
   items:
@@ -561,35 +576,36 @@ experience:
   location: ''
   start_date: 2024-12
   end_date: 2026-02
-  context: Exploitation et fiabilisation de plateformes Big Data critiques en environnement bancaire, avec de fortes contraintes de disponibilité, sécurité et performance.
+  context: "Intervention sur des plateformes data critiques utilisées quotidiennement par de nombreuses équipes au sein d’un grand groupe bancaire.\nCes plateformes doivent rester disponibles en permanence, tout en traitant des volumes importants de données et en absorbant des pics d’activité imprévisibles.\n\nLe contexte est marqué par :\n\t•\tdes exigences fortes en matière de stabilité et de fiabilité,\n\t•\tdes contraintes de sécurité et de conformité,\n\t•\tet une pression opérationnelle liée à des incidents visibles rapidement par les utilisateurs.\n\nUn enjeu majeur consiste également à réduire le bruit opérationnel, notamment les alertes non pertinentes dues à des faux positifs, afin de permettre aux équipes de se concentrer sur les vrais problèmes."
   missions:
-  - description: Administration et exploitation de clusters Hadoop / Cloudera en production (>100 nœuds)
+  - description: Assurer le bon fonctionnement quotidien des plateformes Big Data en production
     _dyb_id: 103974113
     _dyb_sort: 0
-  - description: Support expert N3 / N4 sur incidents critiques (HDFS, YARN, Kafka, Spark, OS)
+  - description: Intervenir en support expert lors d’incidents impactants
     _dyb_id: 103974114
     _dyb_sort: 1
-  - description: Analyse approfondie de logs applicatifs et systèmes (volumétrie élevée)
-    _dyb_id: 103974115
-    _dyb_sort: 2
-  - description: Stabilisation de plateformes soumises à des pics allant jusqu’à 1 000 connexions SSH simultanées
+  - description: Analyser les dysfonctionnements à partir des journaux systèmes et applicatifs
     _dyb_id: 103974116
     _dyb_sort: 3
-  - description: "Optimisation mémoire et tuning système, réduction significative des incidents OOM\t•\tAutomatisation des tâches d’exploitation et de diagnostic via Bash et Python"
+  - description: Stabilisation de plateformes soumises à des pics allant jusqu’à 1 000 connexions SSH simultanées
     _dyb_id: 103974117
     _dyb_sort: 4
-  - description: Amélioration du monitoring et de l’observabilité, réduction du bruit d’alertes
+  - description: Accompagner les équipes dans la gestion des pics de charge
     _dyb_id: 103974118
     _dyb_sort: 5
-  results: []
-  objectives: []
+  - Améliorer la stabilité globale par des actions de réglage et d’optimisation
+  - Mettre en place des automatisations pour fiabiliser les opérations récurrentes
+  - Contribuer à une meilleure qualité de supervision, plus lisible et plus pertinente
+  - Travailler en coordination avec les équipes métier, infrastructure et sécurité
+  results:
+  - Stabilisation durable des plateformes Big Data en environnement bancaire
+  - Réduction du temps de résolution des incidents les plus critiques
+  - Baisse notable des interruptions non planifiées
+  - Diminution du bruit d’alertes lié aux faux positifs
+  - Amélioration du confort de travail des équipes via la mise en place de process reproductibles et automatisés
+  - Contribution à une disponibilité globale supérieure à 99,9 %
   environments:
-  - description: Cloudera
-    _dyb_id: 103627591
-    _dyb_sort: 0
-  - description: Hadoop, HDFS, YARN, Spark, Kafka, Hive, HBase, Cloudera, Linux, Bash, Python, ELK, Prometheus, Grafana
-    _dyb_id: 103627592
-    _dyb_sort: 1
+  - Openstack, Hadoop, HDFS, YARN, Spark, Kafka, Hive, HBase, Cloudera, Linux, Bash, Python, ELK, Prometheus, Grafana
   _dyb_id: 19624337
   _dyb_context_id: 103974119
   _dyb_sort: 0
@@ -616,28 +632,37 @@ experience:
   location: ''
   start_date: 2024-06
   end_date: 2024-11
-  context: Réalisation d’un MVP de l’outil Platform Builder de JEMS, visant à concevoir une plateforme data cloud industrialisable et multi-cloud, permettant de générer et déployer des pipelines data standardisés sur AWS, Azure et Google Cloud Platform, avec un socle Apache Iceberg pour la gestion des tables analytiques.
+  context: "Participation à la réalisation d’un MVP de l’outil Platform Builder de JEMS, avec pour objectif de poser les bases d’une plateforme data moderne, capable de fonctionner de manière cohérente sur plusieurs environnements cloud.\n\nLe projet répond à un besoin clair :\n\t•\taccélérer la mise en place de nouveaux pipelines data,\n\t•\téviter la multiplication de solutions spécifiques par projet,\n\t•\tet proposer un cadre commun, réutilisable et standardisé.\n\nLa plateforme devait permettre aux équipes de se concentrer sur les cas d’usage métier, tout en s’appuyant sur une gestion fiable et structurée des données analytiques grâce à Apache Iceberg."
   missions:
-  - description: Contribution à la conception et à la livraison du MVP Platform Builder
+  - description: 'Participer activement à la conception et à la livraison du MVP Platform Builder
+
+      '
     _dyb_id: 103974798
     _dyb_sort: 0
-  - description: Conception et développement de pipelines data cloud en PySpark
+  - description: Construire des pipelines data cloud robustes et reproductibles
     _dyb_id: 103974799
     _dyb_sort: 1
-  - description: Mise en œuvre de tables analytiques Apache Iceberg (évolution de schéma, historisation / time travel)
+  - description: Mettre en place une gestion structurée des données analytiques
     _dyb_id: 103974800
     _dyb_sort: 2
-  - description: Structuration des chaînes ingestion → transformation
+  - description: Organiser les traitements selon des étapes claires et compréhensibles
     _dyb_id: 103974801
     _dyb_sort: 3
   - description: Développement de jobs Spark industrialisés (hors notebooks exploratoires)
     _dyb_id: 103974802
     _dyb_sort: 4
-  - description: Déploiement et validation des pipelines sur AWS, Azure et GCP
+  - description: S’assurer que les traitements puissent être déployés de manière identique sur plusieurs clouds
     _dyb_id: 103974803
     _dyb_sort: 5
-  results: []
-  objectives: []
+  - Définir des règles communes pour le développement et l’exploitation des pipelines
+  - Contribuer à une approche plateforme orientée produit, et non projet par projet
+  results:
+  - 'Livraison d’un MVP opérationnel '
+  - 'Livraison d’un MVP opérationnel '
+  - Validation d’une approche multi-cloud cohérente (AWS, Azure, GCP)
+  - Mise en place de pipelines standardisés, facilement réutilisables
+  - Réduction du temps nécessaire pour démarrer de nouveaux cas d’usage
+  - Pose de bases solides pour une plateforme data évolutive
   environments:
   - description: Platform Builder (JEMS), Apache Iceberg, Python, PySpark, Apache Spark, AWS, Azure, Google Cloud Platform, Data Pipelines, Industrialisation, Git
     _dyb_id: 103974805
@@ -664,17 +689,22 @@ experience:
   location: ''
   start_date: '2021'
   end_date: '2023'
-  context: Étude sur la prévision de la production dans le secteur de la viande porcine en France. Les données utilisées proviennent d'un organisme, BDPORC qui est chargé par l'état, pour des raisons de traçabilité de collecter les mouvements d'animaux avec environ 800 000 à 900 000 enregistrements par an.
+  context: "Projet national visant à améliorer la prévision de la production porcine en France, à partir de données de traçabilité collectées à grande échelle.\n\nLes données, nombreuses (environ 800 000 à 900 000 enregistrements par an) et hétérogènes, devaient être :\n\t•\tstructurées,\n\t•\tnettoyées,\n\t•\tpuis exploitées afin de produire des prévisions fiables et compréhensibles.\n\nL’enjeu n’était pas uniquement technique, mais aussi économique et décisionnel, avec une forte attente sur la qualité et la robustesse des résultats.\n"
   missions:
-  - description: '- Développement d''un pipeline de traitement des données, qui comprend la sélection des caractéristiques, la transformation des caractéristiques, et l''entraînement des modèles de prévision
-
-      - Comparaison de la performance de plusieurs modèles de prévision de séries temporelles, tels que DeepAR, Prophet, HRHN, N-BEATS, DSTP-RNN, TFT, N-HITS, Catboost, XGBoost, LightGBM et Croston, en utilisant la métrique MAPE (Mean Absolute Percentage Error)
-
-      - Obtention de la meilleure performance avec Catboost avec une MAPE de 3,45%'
+  - description: Construire une chaîne complète de traitement des données
     _dyb_id: 102280601
     _dyb_sort: 0
-  results: []
-  objectives: []
+  - Tester différentes approches de modélisation
+  - Comparer les performances de plusieurs modèles
+  - Mettre en place des indicateurs de qualité pour évaluer les résultats
+  - Rendre les résultats exploitables par les acteurs métier
+  - Structurer les traitements pour qu’ils puissent être rejoués et améliorés dans le temps
+  results:
+  - Obtention de prévisions précises et stables (MAPE 3,45 %)
+  - Amélioration significative de la qualité des projections
+  - Mise à disposition d’un dispositif reproductible et industrialisable
+  - Contribution directe à la prise de décision des acteurs de la filière
+  - Valorisation concrète de données jusque-là peu exploitées
   environments:
   - description: '- Azure, Pytorch, Tensorflow, Scikit-learn, R Studio
 
@@ -711,7 +741,6 @@ experience:
     _dyb_id: 102280604
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- AWS, GPT-2, GPT-3, BERT'
     _dyb_id: 102280606
@@ -748,7 +777,6 @@ experience:
     _dyb_id: 102280607
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- z/OS, Cobol, Assembleur, Principia
 
@@ -789,7 +817,6 @@ experience:
     _dyb_id: 102280610
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- z/OS, Assembleur, COBOL'
     _dyb_id: 102280612
@@ -820,7 +847,6 @@ experience:
     _dyb_id: 102280613
     _dyb_sort: 0
   results: []
-  objectives: []
   environments: []
   _dyb_id: 19318754
   _dyb_context_id: 102280614
@@ -856,7 +882,6 @@ experience:
     _dyb_id: 102280615
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- z/OS, Assembleur, COBOL, Unix System Services'
     _dyb_id: 102280617
@@ -899,7 +924,6 @@ experience:
     _dyb_id: 102280618
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
@@ -932,7 +956,6 @@ experience:
     _dyb_id: 102280621
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- AIX, HP-UX, Solaris, z/OS, Windows Server, Oracle, DB2
 
@@ -979,7 +1002,6 @@ experience:
     _dyb_id: 102280624
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- z/OS, Linux, z/VM, TCP/IP'
     _dyb_id: 102280626
@@ -1012,7 +1034,6 @@ experience:
     _dyb_id: 102280627
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- OS/390, VM, Oracle'
     _dyb_id: 102280629
@@ -1045,7 +1066,6 @@ experience:
     _dyb_id: 102280630
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- OS/390, VM, Oracle'
     _dyb_id: 102280632
@@ -1076,7 +1096,6 @@ experience:
     _dyb_id: 102280633
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- OS/390, Sysplex, SMP/E, DB2, CICS, RACF, TWS'
     _dyb_id: 102280635
@@ -1111,7 +1130,6 @@ experience:
     _dyb_id: 102280636
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- OS/390, HP-UX, C, DB2, CICS'
     _dyb_id: 102280638
@@ -1144,7 +1162,6 @@ experience:
     _dyb_id: 102280639
     _dyb_sort: 0
   results: []
-  objectives: []
   environments:
   - description: '- OS/390, HP-UX, TWS, HSM, STORAGETEK'
     _dyb_id: 102280640

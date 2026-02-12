@@ -1,80 +1,159 @@
 # DoYouBuzz Showcase Editor
 
-An interactive web application built with Streamlit to manage and edit professional showcase data with **PERFECT DoYouBuzz compatibility**.
+**Version 0.1.1**
 
-## ✨ Perfect Bidirectional Sync
+Gestion et édition de CVs DoYouBuzz avec support multi-showcases. Éditez facilement vos informations professionnelles et créez des variantes de votre CV pour différents contextes.
 
-This editor provides **100% lossless round-trip conversion** between DoYouBuzz JSON and editable YAML format:
-- ✅ All 37 top-level DoYouBuzz fields preserved
-- ✅ All nested structures (skills, experiences, missions, etc.) preserved perfectly
-- ✅ All metadata fields (IDs, timestamps, logos, etc.) preserved
-- ✅ Guaranteed byte-for-byte identical export = original JSON
+## ✨ Fonctionnalités
 
-## Features
+### Édition complète du CV
+- 👤 **Informations personnelles** : nom, titre, email, localisation
+- 📝 **Résumé professionnel** : description éditable
+- 🛠️ **Compétences** : gestion par catégories avec niveaux (0-100%)
+- 💼 **Expériences professionnelles** :
+  - Titre, entreprise, dates, localisation
+  - Contexte détaillé du poste
+  - Missions (actions réalisées)
+  - Résultats (réalisations)
+  - Environnement technique
+- 🎓 **Certifications** : nom, organisme, date
+- 🌍 **Langues** : langue et niveau de maîtrise
 
-- 📝 Edit personal information, summary, experience (missions/context/environments), certifications, and languages
-- 💾 Save changes to YAML format
-- 📥 Export to DoYouBuzz-compatible JSON
-- 📤 Import from DoYouBuzz JSON export
-- 🔄 **PERFECT** round-trip conversion (100% metadata preservation)
-- 🎨 Clean, intuitive interface
-- 🛡️ Skills section preserved as-is (read-only, too complex for manual editing)
+### Multi-showcases
+- 📌 **Baseline** : CV de base (tracké dans Git)
+- 📄 **Variants** : créez des versions adaptées (frontend, backend, data, etc.)
+- 🔄 Basculez facilement entre showcases
+- ♻️ Créez des variants à partir de n'importe quel showcase
 
-## Installation
+### Import/Export
+- 📥 Import JSON depuis DoYouBuzz
+- 📤 Export JSON vers DoYouBuzz
+- 💾 Sauvegarde automatique en YAML
+- 🔄 Préservation des métadonnées DoYouBuzz
 
+## 🚀 Installation et Démarrage
+
+### Prérequis
+- Python 3.8+
+- pip
+
+### Installation
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
-
-### Running locally
+### Lancement
 ```bash
 streamlit run app.py
 ```
 
-### Importing from DoYouBuzz
+L'application s'ouvre automatiquement dans votre navigateur à l'adresse `http://localhost:8501`
 
-1. Export your CV from DoYouBuzz as JSON
-2. Convert to editable YAML:
-   ```bash
-   python doyoubuzz_converter.py json2yaml your_cv.json showcase.yaml
-   ```
-3. Edit in the Streamlit app
+## 📖 Utilisation
 
-### Exporting back to DoYouBuzz
+### Workflow classique
 
-1. Click "Export to DoYouBuzz JSON" in the sidebar
-2. Download `showcase_export.json`
-3. Import back to DoYouBuzz
+1. **Importer un CV DoYouBuzz**
+   - Exportez votre CV depuis DoYouBuzz (format JSON)
+   - Via CLI : `python doyoubuzz_converter.py json2yaml cv_doyoubuzz.json showcases/baseline.yaml`
 
-## Structure
+2. **Éditer dans l'interface**
+   - Lancez `streamlit run app.py`
+   - Naviguez dans les sections (Personal Info, Summary, Skills, etc.)
+   - Modifiez les champs
+   - Cliquez sur "💾 Save to YAML" pour sauvegarder
 
-- `app.py` - Main Streamlit application
-- `showcase.yaml` - Simplified YAML for editing
-- `showcase.original.json` - Original DoYouBuzz JSON (for reference)
-- `doyoubuzz_converter.py` - Bidirectional JSON<->YAML converter
-- `requirements.txt` - Python dependencies
+3. **Créer des variants**
+   - Dans la sidebar, section "➕ Create Variant"
+   - Donnez un nom (ex: "frontend", "data-engineer")
+   - Le variant est créé comme copie du showcase actuel
+   - Éditez-le indépendamment
 
-## Data Structure
+4. **Exporter vers DoYouBuzz**
+   - Cliquez sur "📥 Export to DoYouBuzz JSON"
+   - Un fichier `{showcase}_export.json` est généré
+   - Importez-le dans DoYouBuzz
+   - ⚠️ **Important** : Les résultats doivent être ajoutés manuellement dans DoYouBuzz (limitation de leur import JSON)
 
-The YAML uses a simplified structure for easy editing:
-- **missions**: List of tasks/responsibilities with metadata
-- **context**: Project context/description  
-- **environments**: Technical environment/stack
-- **results**: Achievement lists (empty arrays supported)
-- **objectives**: Goal lists (empty arrays supported)
+## 📁 Structure du projet
 
-All DoYouBuzz metadata is automatically preserved:
-- `_dyb_*` fields store IDs, sort orders, and other metadata
-- `_doyoubuzz_metadata` section stores all top-level DoYouBuzz fields
-- Full objects preserved for skills, certificates, languages, and experience metadata
+```
+DC/
+├── app.py                   # Interface Streamlit principale
+├── doyoubuzz_converter.py   # Convertisseur bidirectionnel JSON ↔ YAML
+├── showcase_manager.py      # Gestion des showcases (création, suppression)
+├── requirements.txt         # Dépendances Python
+├── .gitignore              # Fichiers à ignorer (exports, cache)
+├── README.md               # Cette documentation
+└── showcases/
+    ├── baseline.yaml       # CV de base (tracké dans Git)
+    └── *.yaml             # Variants (ignorés par Git)
+```
 
-This ensures **perfect round-trip compatibility** - your export will be byte-for-byte identical to the original JSON!
+## ⚠️ Limitations DoYouBuzz
 
-## Deployment
+**L'import JSON de DoYouBuzz ne supporte PAS :**
+- ❌ **Résultats** : doivent être saisis manuellement dans l'interface DoYouBuzz
+- ❌ **Objectifs** : non utilisés (supprimés de l'éditeur)
 
-This app can be deployed to Streamlit Community Cloud:
-1. Push to GitHub
-2. Connect your GitHub repository to Streamlit Cloud
-3. Deploy!
+**Sections supportées par l'import JSON :**
+- ✅ Informations personnelles
+- ✅ Résumé professionnel
+- ✅ Compétences avec niveaux
+- ✅ Expériences (titre, entreprise, dates, contexte)
+- ✅ Missions
+- ✅ Environnement technique
+- ✅ Certifications
+- ✅ Langues
+
+### Workaround pour les résultats
+
+Pour copier facilement vos résultats dans DoYouBuzz :
+```bash
+python3 -c "
+import yaml
+with open('showcases/baseline.yaml') as f:
+    data = yaml.safe_load(f)
+for exp in data['experience']:
+    if exp.get('results'):
+        print(f\"\\n{exp['title']} - {exp['company']}\")
+        for i, r in enumerate(exp['results'], 1):
+            print(f'{i}. {r}')
+"
+```
+
+## 🔧 Commandes CLI
+
+### Convertir JSON → YAML
+```bash
+python doyoubuzz_converter.py json2yaml input.json output.yaml
+```
+
+### Convertir YAML → JSON
+```bash
+python doyoubuzz_converter.py yaml2json input.yaml output.json
+```
+
+## 🏗️ Métadonnées
+
+Les métadonnées DoYouBuzz sont préservées via :
+- `_dyb_*` : champs de métadonnées (IDs, sort, timestamps, etc.)
+- `_doyoubuzz_metadata` : section complète des métadonnées globales
+
+Cela garantit la **compatibilité round-trip** : YAML → JSON → DoYouBuzz → JSON → YAML
+
+## 📝 Version
+
+**v0.1.1** (2026-02-12)
+- ✅ Multi-showcases (baseline + variants)
+- ✅ Édition complète des sections principales
+- ✅ Gestion des compétences avec niveaux
+- ✅ Import/Export DoYouBuzz JSON
+- ✅ Suppression du champ objectives (non supporté)
+- ✅ Nettoyage du projet (788 KB)
+
+## 📄 Licence
+
+MIT
+
+Co-Authored-By: Warp <agent@warp.dev>

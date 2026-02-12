@@ -110,31 +110,35 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
     
     # Convert experiences - store with DoYouBuzz IDs for round-trip
     for exp in dyb_data.get('experiences', []):
-        # Extract missions
-        missions = []
-        for m in exp.get('missions', []):
-            missions.append({
-                'description': m['description'],
-                '_dyb_id': m.get('id'),  # Preserve ID for round-trip
-                '_dyb_sort': m.get('sort', 0)
-            })
+        # DoYouBuzz can store items in two ways:
+        # 1. All in missions[] array with type field (mission/result/objective)
+        # 2. Separate arrays: missions[], results[], objectives[]
+        # We need to handle both cases
         
-        # Extract results
+        missions = []
         results = []
+        
+        # Extract from missions array (filter by type)
+        for m in exp.get('missions', []):
+            item_type = m.get('type', 'mission')
+            item_data = {
+                'description': m['description'],
+                '_dyb_id': m.get('id'),
+                '_dyb_sort': m.get('sort', 0)
+            }
+            
+            if item_type == 'mission':
+                missions.append(item_data)
+            elif item_type == 'result':
+                results.append(item_data)
+            # objectives ignored - not used by DoYouBuzz import
+        
+        # Also extract from separate results[] array (if present)
         for r in exp.get('results', []):
             results.append({
                 'description': r['description'],
                 '_dyb_id': r.get('id'),
                 '_dyb_sort': r.get('sort', 0)
-            })
-        
-        # Extract objectives
-        objectives = []
-        for o in exp.get('objectives', []):
-            objectives.append({
-                'description': o['description'],
-                '_dyb_id': o.get('id'),
-                '_dyb_sort': o.get('sort', 0)
             })
         
         # Extract context
@@ -162,7 +166,6 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
             'context': context,
             'missions': missions,
             'results': results,
-            'objectives': objectives,
             'environments': environments,
             # Preserve ALL DoYouBuzz metadata for perfect round-trip
             '_dyb_id': exp.get('id'),
@@ -347,9 +350,8 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
             "sort": exp.get('_dyb_sort', idx),
             "title": exp.get('title', ''),
             "slug": exp.get('_dyb_slug', exp.get('company', '').lower().replace(' ', '-')),
-            "missions": [],
-            "results": [],
-            "objectives": [],
+            "missions": [],  # ONLY missions (type=mission)
+            "results": [],  # ONLY results (type=result) - separate array
             "contexts": [],
             "environments": []
         }
@@ -364,7 +366,7 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
         if exp.get('_dyb_logos'):
             dyb_exp['logos'] = exp['_dyb_logos']
         
-        # Add missions
+        # Add missions (ONLY type=mission goes here)
         for mis_idx, mission in enumerate(exp.get('missions', [])):
             if isinstance(mission, dict):
                 desc = mission.get('description', '')
@@ -383,7 +385,7 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
                 "type": "mission"
             })
         
-        # Add results
+        # Add results (in SEPARATE results[] array)
         for res_idx, result in enumerate(exp.get('results', [])):
             if isinstance(result, dict):
                 desc = result.get('description', '')
@@ -403,25 +405,7 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
                     "type": "result"
                 })
         
-        # Add objectives
-        for obj_idx, objective in enumerate(exp.get('objectives', [])):
-            if isinstance(objective, dict):
-                desc = objective.get('description', '')
-                obj_id = objective.get('_dyb_id', 100000000 + idx * 100 + obj_idx + 30)
-                obj_sort = objective.get('_dyb_sort', obj_idx)
-            else:
-                desc = str(objective)
-                obj_id = 100000000 + idx * 100 + obj_idx + 30
-                obj_sort = obj_idx
-            
-            if desc:  # Only add non-empty objectives
-                dyb_exp['objectives'].append({
-                    "toDel": False,
-                    "id": obj_id,
-                    "sort": obj_sort,
-                    "description": desc,
-                    "type": "objective"
-                })
+        # Objectives not used by DoYouBuzz import - removed
         
         # Add context
         if exp.get('context'):
