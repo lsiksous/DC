@@ -11,100 +11,550 @@ summary: Avec **29 années d'expérience**, ce profil combine une expertise uniq
 skills:
 - category: IA
   items:
-  - Sci-Kit (80%)
-  - PyTorch (60%)
-  - TensorFlow (60%)
-  - LangChain (40%)
-  - RAG (40%)
-  - Systèmes agentiques (30%)
+  - name: Sci-Kit
+    level: 80
+    _dyb_id: 63636384
+    _dyb_sort: 0
+    _dyb_skillTerm: 70890
+    _dyb_views: []
+    _dyb_home: true
+  - name: PyTorch
+    level: 60
+    _dyb_id: 63636383
+    _dyb_sort: 1
+    _dyb_skillTerm: 70889
+    _dyb_views: []
+    _dyb_home: true
+  - name: TensorFlow
+    level: 60
+    _dyb_id: 63636382
+    _dyb_sort: 2
+    _dyb_skillTerm: 70888
+    _dyb_views: []
+    _dyb_home: true
+  - name: LangChain
+    level: 40
+    _dyb_id: 64364397
+    _dyb_sort: 3
+    _dyb_skillTerm: 70884
+    _dyb_views: []
+    _dyb_home: true
+  - name: RAG
+    level: 40
+    _dyb_id: 64364399
+    _dyb_sort: 4
+    _dyb_skillTerm: 70887
+    _dyb_views: []
+    _dyb_home: true
+  - name: Systèmes agentiques
+    level: 30
+    _dyb_id: 64364398
+    _dyb_sort: 5
+    _dyb_skillTerm: 70886
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636380
+  _dyb_sort: 0
+  _dyb_skillTerm: 65192
+  _dyb_views: []
+  _dyb_home: true
 - category: Langages de programmation
   items:
-  - Python (80%)
-  - Shell (80%)
-  - C (60%)
-  - Ruby (60%)
-  - Javascript (60%)
-  - R
+  - name: Python
+    level: 80
+    _dyb_id: 62377681
+    _dyb_sort: 0
+    _dyb_skillTerm: 65212
+    _dyb_views: []
+    _dyb_home: true
+  - name: Shell
+    level: 80
+    _dyb_id: 62377683
+    _dyb_sort: 1
+    _dyb_skillTerm: 65231
+    _dyb_views: []
+    _dyb_home: true
+  - name: C
+    level: 60
+    _dyb_id: 62377684
+    _dyb_sort: 2
+    _dyb_skillTerm: 65214
+    _dyb_views: []
+    _dyb_home: true
+  - name: Ruby
+    level: 60
+    _dyb_id: 62377686
+    _dyb_sort: 3
+    _dyb_skillTerm: 65213
+    _dyb_views: []
+    _dyb_home: true
+  - name: Javascript
+    level: 60
+    _dyb_id: 62377685
+    _dyb_sort: 4
+    _dyb_skillTerm: 65220
+    _dyb_views: []
+    _dyb_home: true
+  - name: R
+    level: 0
+    _dyb_id: 62377682
+    _dyb_sort: 5
+    _dyb_skillTerm: 65227
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 62377680
+  _dyb_sort: 1
+  _dyb_skillTerm: 65179
+  _dyb_views: []
+  _dyb_home: true
 - category: Container et gestion de Container
   items:
-  - Docker (80%)
-  - Terraform (80%)
+  - name: Docker
+    level: 80
+    _dyb_id: 62377715
+    _dyb_sort: 0
+    _dyb_skillTerm: 65379
+    _dyb_views: []
+    _dyb_home: true
+  - name: Terraform
+    level: 80
+    _dyb_id: 62377716
+    _dyb_sort: 1
+    _dyb_skillTerm: 65380
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 62377714
+  _dyb_sort: 2
+  _dyb_skillTerm: 65195
+  _dyb_views: []
+  _dyb_home: true
 - category: Système d'exploitation
   items:
-  - z/OS (100%)
-  - z/VM (100%)
-  - z/Linux (100%)
-  - Unix/Linux (100%)
-  - macOS (90%)
+  - name: z/OS
+    level: 100
+    _dyb_id: 62377667
+    _dyb_sort: 0
+    _dyb_skillTerm: null
+    _dyb_views: []
+    _dyb_home: true
+  - name: z/VM
+    level: 100
+    _dyb_id: 62377668
+    _dyb_sort: 1
+    _dyb_skillTerm: null
+    _dyb_views: []
+    _dyb_home: true
+  - name: z/Linux
+    level: 100
+    _dyb_id: 62377669
+    _dyb_sort: 2
+    _dyb_skillTerm: null
+    _dyb_views: []
+    _dyb_home: true
+  - name: Unix/Linux
+    level: 100
+    _dyb_id: 62377670
+    _dyb_sort: 3
+    _dyb_skillTerm: null
+    _dyb_views: []
+    _dyb_home: true
+  - name: macOS
+    level: 90
+    _dyb_id: 62377671
+    _dyb_sort: 4
+    _dyb_skillTerm: null
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 62377666
+  _dyb_sort: 3
+  _dyb_skillTerm: 65188
+  _dyb_views: []
+  _dyb_home: true
 - category: Frameworks
   items:
-  - Flask
-  - Ruby on Rails
+  - name: Flask
+    level: 0
+    _dyb_id: 63636504
+    _dyb_sort: 0
+    _dyb_skillTerm: 65240
+    _dyb_views: []
+    _dyb_home: true
+  - name: Ruby on Rails
+    level: 0
+    _dyb_id: 63636505
+    _dyb_sort: 1
+    _dyb_skillTerm: 65245
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636503
+  _dyb_sort: 4
+  _dyb_skillTerm: 65180
+  _dyb_views: []
+  _dyb_home: true
 - category: Base de données
   items:
-  - DB2
-  - MySQL
-  - PostgreSQL
+  - name: DB2
+    level: 0
+    _dyb_id: 62377693
+    _dyb_sort: 0
+    _dyb_skillTerm: 65272
+    _dyb_views: []
+    _dyb_home: true
+  - name: MySQL
+    level: 0
+    _dyb_id: 62377694
+    _dyb_sort: 1
+    _dyb_skillTerm: 65260
+    _dyb_views: []
+    _dyb_home: true
+  - name: PostgreSQL
+    level: 0
+    _dyb_id: 62377695
+    _dyb_sort: 2
+    _dyb_skillTerm: 65263
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 62377692
+  _dyb_sort: 5
+  _dyb_skillTerm: 65182
+  _dyb_views: []
+  _dyb_home: true
 - category: Big Data
   items:
-  - Cloudera
-  - Kafka
+  - name: Cloudera
+    level: 0
+    _dyb_id: 63637003
+    _dyb_sort: 0
+    _dyb_skillTerm: 70865
+    _dyb_views: []
+    _dyb_home: true
+  - name: Kafka
+    level: 0
+    _dyb_id: 63637004
+    _dyb_sort: 1
+    _dyb_skillTerm: 70898
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63637002
+  _dyb_sort: 6
+  _dyb_skillTerm: 70864
+  _dyb_views: []
+  _dyb_home: true
 - category: Cloud
   items:
-  - AWS
-  - GoogleCloud
-  - Azure
+  - name: AWS
+    level: 0
+    _dyb_id: 63637696
+    _dyb_sort: 0
+    _dyb_skillTerm: 65356
+    _dyb_views: []
+    _dyb_home: true
+  - name: GoogleCloud
+    level: 0
+    _dyb_id: 63637697
+    _dyb_sort: 1
+    _dyb_skillTerm: 65357
+    _dyb_views: []
+    _dyb_home: true
+  - name: Azure
+    level: 0
+    _dyb_id: 63637698
+    _dyb_sort: 2
+    _dyb_skillTerm: 65359
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63637695
+  _dyb_sort: 7
+  _dyb_skillTerm: 65191
+  _dyb_views: []
+  _dyb_home: true
 - category: Gestion de Conf
   items:
-  - Ansible
+  - name: Ansible
+    level: 0
+    _dyb_id: 62377718
+    _dyb_sort: 0
+    _dyb_skillTerm: 65385
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 62377717
+  _dyb_sort: 8
+  _dyb_skillTerm: 65196
+  _dyb_views: []
+  _dyb_home: true
 - category: Versionning
   items:
-  - Git
+  - name: Git
+    level: 0
+    _dyb_id: 63636508
+    _dyb_sort: 0
+    _dyb_skillTerm: 65427
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636507
+  _dyb_sort: 9
+  _dyb_skillTerm: 65203
+  _dyb_views: []
+  _dyb_home: true
 - category: API
   items:
-  - API SOAP
-  - API REST
-  - Swagger
+  - name: API SOAP
+    level: 0
+    _dyb_id: 63636647
+    _dyb_sort: 0
+    _dyb_skillTerm: 65273
+    _dyb_views: []
+    _dyb_home: true
+  - name: API REST
+    level: 0
+    _dyb_id: 63636648
+    _dyb_sort: 1
+    _dyb_skillTerm: 65274
+    _dyb_views: []
+    _dyb_home: true
+  - name: Swagger
+    level: 0
+    _dyb_id: 63636649
+    _dyb_sort: 2
+    _dyb_skillTerm: 65279
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636646
+  _dyb_sort: 10
+  _dyb_skillTerm: 65183
+  _dyb_views: []
+  _dyb_home: true
 - category: Intégration continue (CI)
   items:
-  - GitLab
-  - Jenkins
+  - name: GitLab
+    level: 0
+    _dyb_id: 63636680
+    _dyb_sort: 0
+    _dyb_skillTerm: 65285
+    _dyb_views: []
+    _dyb_home: true
+  - name: Jenkins
+    level: 0
+    _dyb_id: 63636681
+    _dyb_sort: 1
+    _dyb_skillTerm: 65287
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636679
+  _dyb_sort: 11
+  _dyb_skillTerm: 65184
+  _dyb_views: []
+  _dyb_home: true
 - category: Tests
   items:
-  - Test fonctionnel
-  - Test manuel
-  - Test unitaire
-  - Test automatisé
-  - Test de performance
-  - Test d'API
-  - Test de non regression
+  - name: Test fonctionnel
+    level: 0
+    _dyb_id: 63636837
+    _dyb_sort: 0
+    _dyb_skillTerm: 65325
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test manuel
+    level: 0
+    _dyb_id: 63636838
+    _dyb_sort: 1
+    _dyb_skillTerm: 65326
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test unitaire
+    level: 0
+    _dyb_id: 63636839
+    _dyb_sort: 2
+    _dyb_skillTerm: 65327
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test automatisé
+    level: 0
+    _dyb_id: 63636840
+    _dyb_sort: 3
+    _dyb_skillTerm: 65328
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test de performance
+    level: 0
+    _dyb_id: 63636841
+    _dyb_sort: 4
+    _dyb_skillTerm: 65329
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test d'API
+    level: 0
+    _dyb_id: 63636842
+    _dyb_sort: 5
+    _dyb_skillTerm: 65330
+    _dyb_views: []
+    _dyb_home: true
+  - name: Test de non regression
+    level: 0
+    _dyb_id: 63636843
+    _dyb_sort: 6
+    _dyb_skillTerm: 65332
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636836
+  _dyb_sort: 12
+  _dyb_skillTerm: 65186
+  _dyb_views: []
+  _dyb_home: true
 - category: Monitoring
   items:
-  - Grafana
-  - Nagios
-  - Dynatrace
-  - Prometheus
+  - name: Grafana
+    level: 0
+    _dyb_id: 63637997
+    _dyb_sort: 0
+    _dyb_skillTerm: 65397
+    _dyb_views: []
+    _dyb_home: true
+  - name: Nagios
+    level: 0
+    _dyb_id: 63637998
+    _dyb_sort: 1
+    _dyb_skillTerm: 65399
+    _dyb_views: []
+    _dyb_home: true
+  - name: Dynatrace
+    level: 0
+    _dyb_id: 63637999
+    _dyb_sort: 2
+    _dyb_skillTerm: 65400
+    _dyb_views: []
+    _dyb_home: true
+  - name: Prometheus
+    level: 0
+    _dyb_id: 63638000
+    _dyb_sort: 3
+    _dyb_skillTerm: 65401
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63637996
+  _dyb_sort: 13
+  _dyb_skillTerm: 65199
+  _dyb_views: []
+  _dyb_home: true
 - category: Outils
   items:
-  - Github
-  - Jira
-  - Trello
+  - name: Github
+    level: 0
+    _dyb_id: 63636937
+    _dyb_sort: 0
+    _dyb_skillTerm: 65351
+    _dyb_views: []
+    _dyb_home: true
+  - name: Jira
+    level: 0
+    _dyb_id: 63636938
+    _dyb_sort: 1
+    _dyb_skillTerm: 65353
+    _dyb_views: []
+    _dyb_home: true
+  - name: Trello
+    level: 0
+    _dyb_id: 63636939
+    _dyb_sort: 2
+    _dyb_skillTerm: 65354
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636936
+  _dyb_sort: 14
+  _dyb_skillTerm: 65190
+  _dyb_views: []
+  _dyb_home: true
 - category: Environnement de développement (IDE)
   items:
-  - Visual Studio Code
+  - name: Visual Studio Code
+    level: 0
+    _dyb_id: 63636747
+    _dyb_sort: 0
+    _dyb_skillTerm: 65302
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636746
+  _dyb_sort: 15
+  _dyb_skillTerm: 65185
+  _dyb_views: []
+  _dyb_home: true
 - category: Méthodes
   items:
-  - Scrum
-  - UML
-  - Cycle en V
-  - Devops
-  - Itérative
-  - Cascade
-  - Lean
+  - name: Scrum
+    level: 0
+    _dyb_id: 63636892
+    _dyb_sort: 0
+    _dyb_skillTerm: 65343
+    _dyb_views: []
+    _dyb_home: true
+  - name: UML
+    level: 0
+    _dyb_id: 63636893
+    _dyb_sort: 1
+    _dyb_skillTerm: 65344
+    _dyb_views: []
+    _dyb_home: true
+  - name: Cycle en V
+    level: 0
+    _dyb_id: 63636894
+    _dyb_sort: 2
+    _dyb_skillTerm: 65346
+    _dyb_views: []
+    _dyb_home: true
+  - name: Devops
+    level: 0
+    _dyb_id: 63636895
+    _dyb_sort: 3
+    _dyb_skillTerm: 65347
+    _dyb_views: []
+    _dyb_home: true
+  - name: Itérative
+    level: 0
+    _dyb_id: 63636896
+    _dyb_sort: 4
+    _dyb_skillTerm: 65348
+    _dyb_views: []
+    _dyb_home: true
+  - name: Cascade
+    level: 0
+    _dyb_id: 63636897
+    _dyb_sort: 5
+    _dyb_skillTerm: 65349
+    _dyb_views: []
+    _dyb_home: true
+  - name: Lean
+    level: 0
+    _dyb_id: 63636898
+    _dyb_sort: 6
+    _dyb_skillTerm: 65350
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63636891
+  _dyb_sort: 16
+  _dyb_skillTerm: 65189
+  _dyb_views: []
+  _dyb_home: true
 - category: Serveur
   items:
-  - Apache
-  - Nginx
+  - name: Apache
+    level: 0
+    _dyb_id: 63637801
+    _dyb_sort: 0
+    _dyb_skillTerm: 65394
+    _dyb_views: []
+    _dyb_home: true
+  - name: Nginx
+    level: 0
+    _dyb_id: 63637802
+    _dyb_sort: 1
+    _dyb_skillTerm: 65395
+    _dyb_views: []
+    _dyb_home: true
+  _dyb_id: 63637800
+  _dyb_sort: 17
+  _dyb_skillTerm: 65198
+  _dyb_views: []
+  _dyb_home: true
 experience:
 - title: Administrateur Hadoop
   company: CAGIP
@@ -3733,564 +4183,3 @@ _doyoubuzz_metadata:
     home: true
   title_full:
     value: Expert Plateformes Data & Big Data — Environnements Critiques & Cloud
-  skills_full:
-  - $views: []
-    skillTerm: 65192
-    id: 63636380
-    home: true
-    sort: 0
-    description: IA
-    children:
-    - $views: []
-      skillTerm: 70890
-      id: 63636384
-      home: true
-      sort: 0
-      description: Sci-Kit
-      level: 80
-      children: []
-    - $views: []
-      skillTerm: 70889
-      id: 63636383
-      home: true
-      sort: 1
-      description: PyTorch
-      level: 60
-      children: []
-    - $views: []
-      skillTerm: 70888
-      id: 63636382
-      home: true
-      sort: 2
-      description: TensorFlow
-      level: 60
-      children: []
-    - $views: []
-      skillTerm: 70884
-      id: 64364397
-      home: true
-      sort: 3
-      description: LangChain
-      level: 40
-      children: []
-    - $views: []
-      skillTerm: 70887
-      id: 64364399
-      home: true
-      sort: 4
-      description: RAG
-      level: 40
-      children: []
-    - $views: []
-      skillTerm: 70886
-      id: 64364398
-      home: true
-      sort: 5
-      description: Systèmes agentiques
-      level: 30
-      children: []
-  - $views: []
-    skillTerm: 65179
-    id: 62377680
-    home: true
-    sort: 1
-    description: Langages de programmation
-    children:
-    - $views: []
-      skillTerm: 65212
-      id: 62377681
-      home: true
-      sort: 0
-      description: Python
-      level: 80
-      children: []
-    - $views: []
-      skillTerm: 65231
-      id: 62377683
-      home: true
-      sort: 1
-      description: Shell
-      level: 80
-      children: []
-    - $views: []
-      skillTerm: 65214
-      id: 62377684
-      home: true
-      sort: 2
-      description: C
-      level: 60
-      children: []
-    - $views: []
-      skillTerm: 65213
-      id: 62377686
-      home: true
-      sort: 3
-      description: Ruby
-      level: 60
-      children: []
-    - $views: []
-      skillTerm: 65220
-      id: 62377685
-      home: true
-      sort: 4
-      description: Javascript
-      level: 60
-      children: []
-    - $views: []
-      skillTerm: 65227
-      id: 62377682
-      home: true
-      sort: 5
-      description: R
-      children: []
-  - $views: []
-    skillTerm: 65195
-    id: 62377714
-    home: true
-    sort: 2
-    description: Container et gestion de Container
-    children:
-    - $views: []
-      skillTerm: 65379
-      id: 62377715
-      home: true
-      sort: 0
-      description: Docker
-      level: 80
-      children: []
-    - $views: []
-      skillTerm: 65380
-      id: 62377716
-      home: true
-      sort: 1
-      description: Terraform
-      level: 80
-      children: []
-  - $views: []
-    skillTerm: 65188
-    id: 62377666
-    home: true
-    sort: 3
-    description: Système d'exploitation
-    category: tech
-    children:
-    - $views: []
-      id: 62377667
-      home: true
-      sort: 0
-      description: z/OS
-      level: 100
-      children: []
-    - $views: []
-      id: 62377668
-      home: true
-      sort: 1
-      description: z/VM
-      level: 100
-      children: []
-    - $views: []
-      id: 62377669
-      home: true
-      sort: 2
-      description: z/Linux
-      level: 100
-      children: []
-    - $views: []
-      id: 62377670
-      home: true
-      sort: 3
-      description: Unix/Linux
-      level: 100
-      children: []
-    - $views: []
-      id: 62377671
-      home: true
-      sort: 4
-      description: macOS
-      level: 90
-      children: []
-  - $views: []
-    skillTerm: 65180
-    id: 63636503
-    home: true
-    sort: 4
-    description: Frameworks
-    children:
-    - $views: []
-      skillTerm: 65240
-      id: 63636504
-      home: true
-      sort: 0
-      description: Flask
-      children: []
-    - $views: []
-      skillTerm: 65245
-      id: 63636505
-      home: true
-      sort: 1
-      description: Ruby on Rails
-      children: []
-  - $views: []
-    skillTerm: 65182
-    id: 62377692
-    home: true
-    sort: 5
-    description: Base de données
-    children:
-    - $views: []
-      skillTerm: 65272
-      id: 62377693
-      home: true
-      sort: 0
-      description: DB2
-      children: []
-    - $views: []
-      skillTerm: 65260
-      id: 62377694
-      home: true
-      sort: 1
-      description: MySQL
-      children: []
-    - $views: []
-      skillTerm: 65263
-      id: 62377695
-      home: true
-      sort: 2
-      description: PostgreSQL
-      children: []
-  - $views: []
-    skillTerm: 70864
-    id: 63637002
-    home: true
-    sort: 6
-    description: Big Data
-    children:
-    - $views: []
-      skillTerm: 70865
-      id: 63637003
-      home: true
-      sort: 0
-      description: Cloudera
-      children: []
-    - $views: []
-      skillTerm: 70898
-      id: 63637004
-      home: true
-      sort: 1
-      description: Kafka
-      children: []
-  - $views: []
-    skillTerm: 65191
-    id: 63637695
-    home: true
-    sort: 7
-    description: Cloud
-    children:
-    - $views: []
-      skillTerm: 65356
-      id: 63637696
-      home: true
-      sort: 0
-      description: AWS
-      children: []
-    - $views: []
-      skillTerm: 65357
-      id: 63637697
-      home: true
-      sort: 1
-      description: GoogleCloud
-      children: []
-    - $views: []
-      skillTerm: 65359
-      id: 63637698
-      home: true
-      sort: 2
-      description: Azure
-      children: []
-  - $views: []
-    skillTerm: 65196
-    id: 62377717
-    home: true
-    sort: 8
-    description: Gestion de Conf
-    children:
-    - $views: []
-      skillTerm: 65385
-      id: 62377718
-      home: true
-      sort: 0
-      description: Ansible
-      children: []
-  - $views: []
-    skillTerm: 65203
-    id: 63636507
-    home: true
-    sort: 9
-    description: Versionning
-    children:
-    - $views: []
-      skillTerm: 65427
-      id: 63636508
-      home: true
-      sort: 0
-      description: Git
-      children: []
-  - $views: []
-    skillTerm: 65183
-    id: 63636646
-    home: true
-    sort: 10
-    description: API
-    children:
-    - $views: []
-      skillTerm: 65273
-      id: 63636647
-      home: true
-      sort: 0
-      description: API SOAP
-      children: []
-    - $views: []
-      skillTerm: 65274
-      id: 63636648
-      home: true
-      sort: 1
-      description: API REST
-      children: []
-    - $views: []
-      skillTerm: 65279
-      id: 63636649
-      home: true
-      sort: 2
-      description: Swagger
-      children: []
-  - $views: []
-    skillTerm: 65184
-    id: 63636679
-    home: true
-    sort: 11
-    description: Intégration continue (CI)
-    children:
-    - $views: []
-      skillTerm: 65285
-      id: 63636680
-      home: true
-      sort: 0
-      description: GitLab
-      children: []
-    - $views: []
-      skillTerm: 65287
-      id: 63636681
-      home: true
-      sort: 1
-      description: Jenkins
-      children: []
-  - $views: []
-    skillTerm: 65186
-    id: 63636836
-    home: true
-    sort: 12
-    description: Tests
-    children:
-    - $views: []
-      skillTerm: 65325
-      id: 63636837
-      home: true
-      sort: 0
-      description: Test fonctionnel
-      children: []
-    - $views: []
-      skillTerm: 65326
-      id: 63636838
-      home: true
-      sort: 1
-      description: Test manuel
-      children: []
-    - $views: []
-      skillTerm: 65327
-      id: 63636839
-      home: true
-      sort: 2
-      description: Test unitaire
-      children: []
-    - $views: []
-      skillTerm: 65328
-      id: 63636840
-      home: true
-      sort: 3
-      description: Test automatisé
-      children: []
-    - $views: []
-      skillTerm: 65329
-      id: 63636841
-      home: true
-      sort: 4
-      description: Test de performance
-      children: []
-    - $views: []
-      skillTerm: 65330
-      id: 63636842
-      home: true
-      sort: 5
-      description: Test d'API
-      children: []
-    - $views: []
-      skillTerm: 65332
-      id: 63636843
-      home: true
-      sort: 6
-      description: Test de non regression
-      children: []
-  - $views: []
-    skillTerm: 65199
-    id: 63637996
-    home: true
-    sort: 13
-    description: Monitoring
-    children:
-    - $views: []
-      skillTerm: 65397
-      id: 63637997
-      home: true
-      sort: 0
-      description: Grafana
-      children: []
-    - $views: []
-      skillTerm: 65399
-      id: 63637998
-      home: true
-      sort: 1
-      description: Nagios
-      children: []
-    - $views: []
-      skillTerm: 65400
-      id: 63637999
-      home: true
-      sort: 2
-      description: Dynatrace
-      children: []
-    - $views: []
-      skillTerm: 65401
-      id: 63638000
-      home: true
-      sort: 3
-      description: Prometheus
-      children: []
-  - $views: []
-    skillTerm: 65190
-    id: 63636936
-    home: true
-    sort: 14
-    description: Outils
-    children:
-    - $views: []
-      skillTerm: 65351
-      id: 63636937
-      home: true
-      sort: 0
-      description: Github
-      children: []
-    - $views: []
-      skillTerm: 65353
-      id: 63636938
-      home: true
-      sort: 1
-      description: Jira
-      children: []
-    - $views: []
-      skillTerm: 65354
-      id: 63636939
-      home: true
-      sort: 2
-      description: Trello
-      children: []
-  - $views: []
-    skillTerm: 65185
-    id: 63636746
-    home: true
-    sort: 15
-    description: Environnement de développement (IDE)
-    children:
-    - $views: []
-      skillTerm: 65302
-      id: 63636747
-      home: true
-      sort: 0
-      description: Visual Studio Code
-      children: []
-  - $views: []
-    skillTerm: 65189
-    id: 63636891
-    home: true
-    sort: 16
-    description: Méthodes
-    children:
-    - $views: []
-      skillTerm: 65343
-      id: 63636892
-      home: true
-      sort: 0
-      description: Scrum
-      children: []
-    - $views: []
-      skillTerm: 65344
-      id: 63636893
-      home: true
-      sort: 1
-      description: UML
-      children: []
-    - $views: []
-      skillTerm: 65346
-      id: 63636894
-      home: true
-      sort: 2
-      description: Cycle en V
-      children: []
-    - $views: []
-      skillTerm: 65347
-      id: 63636895
-      home: true
-      sort: 3
-      description: Devops
-      children: []
-    - $views: []
-      skillTerm: 65348
-      id: 63636896
-      home: true
-      sort: 4
-      description: Itérative
-      children: []
-    - $views: []
-      skillTerm: 65349
-      id: 63636897
-      home: true
-      sort: 5
-      description: Cascade
-      children: []
-    - $views: []
-      skillTerm: 65350
-      id: 63636898
-      home: true
-      sort: 6
-      description: Lean
-      children: []
-  - $views: []
-    skillTerm: 65198
-    id: 63637800
-    home: true
-    sort: 17
-    description: Serveur
-    children:
-    - $views: []
-      skillTerm: 65394
-      id: 63637801
-      home: true
-      sort: 0
-      description: Apache
-      children: []
-    - $views: []
-      skillTerm: 65395
-      id: 63637802
-      home: true
-      sort: 1
-      description: Nginx
-      children: []

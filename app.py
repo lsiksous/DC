@@ -144,18 +144,49 @@ else:
                 
                 # Edit existing items
                 for item_idx, item in enumerate(items):
-                    col1, col2 = st.columns([4, 1])
+                    # Handle both new dict format and old string format
+                    if isinstance(item, dict):
+                        skill_name = item.get('name', '')
+                        skill_level = item.get('level', 0)
+                    else:
+                        # Old string format: "Skill (80%)" or just "Skill"
+                        item_str = str(item)
+                        if '(' in item_str and ')' in item_str:
+                            skill_name = item_str.split('(')[0].strip()
+                            level_str = item_str.split('(')[1].split(')')[0].replace('%', '').strip()
+                            skill_level = int(level_str) if level_str.isdigit() else 0
+                        else:
+                            skill_name = item_str
+                            skill_level = 0
+                    
+                    col1, col2, col3 = st.columns([3, 1, 1])
                     with col1:
-                        skill_cat['items'][item_idx] = st.text_input(f"Skill {item_idx + 1}", item, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
+                        new_name = st.text_input(f"Skill {item_idx + 1}", skill_name, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
                     with col2:
+                        new_level = st.number_input("Level %", value=skill_level, min_value=0, max_value=100, step=5, key=f"level_{idx}_{item_idx}", label_visibility="collapsed")
+                    with col3:
                         if st.button("🗑️", key=f"del_{idx}_{item_idx}"):
                             skill_cat['items'].pop(item_idx)
                             st.rerun()
+                    
+                    # Update the item with new values, preserving metadata
+                    if isinstance(item, dict):
+                        skill_cat['items'][item_idx]['name'] = new_name
+                        skill_cat['items'][item_idx]['level'] = new_level
+                    else:
+                        # Convert old format to new format
+                        skill_cat['items'][item_idx] = {'name': new_name, 'level': new_level}
                 
                 # Add new item
-                new_item_input = st.text_input("Add new skill", key=f"new_skill_{idx}")
-                if st.button("Add Skill", key=f"add_skill_{idx}") and new_item_input:
-                    skill_cat['items'].append(new_item_input)
+                st.markdown("**Add new skill:**")
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    new_item_name = st.text_input("Skill name", key=f"new_skill_name_{idx}")
+                with col2:
+                    new_item_level = st.number_input("Level %", value=0, min_value=0, max_value=100, step=5, key=f"new_skill_level_{idx}")
+                
+                if st.button("Add Skill", key=f"add_skill_{idx}") and new_item_name:
+                    skill_cat['items'].append({'name': new_item_name, 'level': new_item_level})
                     st.rerun()
                 
                 # Delete category

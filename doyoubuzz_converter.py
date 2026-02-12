@@ -71,22 +71,38 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
             'owner_full': dyb_data.get('owner'),
             'contacts_full': dyb_data.get('contacts'),
             'presentation_full': dyb_data.get('presentation'),
-            'title_full': dyb_data.get('title'),
-            # Preserve skills as-is (too complex to edit, has many nested IDs)
-            'skills_full': dyb_data.get('skills')
+            'title_full': dyb_data.get('title')
         }
     }
     
-    # Convert skills
+    # Convert skills - preserve IDs for editing
     for skill in dyb_data.get('skills', []):
         skill_category = {
             'category': skill['description'],
-            'items': []
+            'items': [],
+            # Preserve parent skill metadata
+            '_dyb_id': skill.get('id'),
+            '_dyb_sort': skill.get('sort', 0),
+            '_dyb_skillTerm': skill.get('skillTerm'),
+            '_dyb_views': skill.get('$views'),
+            '_dyb_home': skill.get('home')
         }
         for child in skill.get('children', []):
-            item = child['description']
-            if 'level' in child and child.get('level'):
-                item += f" ({child['level']}%)"
+            # Extract skill name and level
+            skill_name = child['description']
+            skill_level = child.get('level', 0)
+            
+            # Create item with metadata
+            item = {
+                'name': skill_name,
+                'level': skill_level,
+                # Preserve child metadata
+                '_dyb_id': child.get('id'),
+                '_dyb_sort': child.get('sort', 0),
+                '_dyb_skillTerm': child.get('skillTerm'),
+                '_dyb_views': child.get('$views'),
+                '_dyb_home': child.get('home')
+            }
             skill_category['items'].append(item)
         
         if skill_category['items']:
@@ -487,9 +503,64 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
             dyb_data['languageSkills'] = {}
         dyb_data['languageSkills']['elements'] = dyb_langs
     
-    # Restore skills from metadata (not editable in simplified view)
-    if '_doyoubuzz_metadata' in showcase and showcase['_doyoubuzz_metadata'].get('skills_full'):
-        dyb_data['skills'] = showcase['_doyoubuzz_metadata']['skills_full']
+    # Rebuild skills from edited YAML structure
+    dyb_skills = []
+    for idx, skill_cat in enumerate(showcase.get('skills', [])):
+        dyb_skill = {
+            "$views": skill_cat.get('_dyb_views', []),
+            "skillTerm": skill_cat.get('_dyb_skillTerm'),
+            "id": skill_cat.get('_dyb_id', 63000000 + idx),
+            "home": skill_cat.get('_dyb_home', True),
+            "sort": skill_cat.get('_dyb_sort', idx),
+            "description": skill_cat.get('category', ''),
+            "children": []
+        }
+        
+        for child_idx, item in enumerate(skill_cat.get('items', [])):
+            # Handle both dict (with metadata) and string formats
+            if isinstance(item, dict):
+                skill_name = item.get('name', '')
+                skill_level = item.get('level', 0)
+                child_id = item.get('_dyb_id', 63000000 + idx * 1000 + child_idx)
+                child_skillTerm = item.get('_dyb_skillTerm')
+                child_views = item.get('_dyb_views', [])
+                child_home = item.get('_dyb_home', True)
+                child_sort = item.get('_dyb_sort', child_idx)
+            else:
+                # Old string format: "Skill Name (80%)" or just "Skill Name"
+                item_str = str(item)
+                if '(' in item_str and ')' in item_str:
+                    skill_name = item_str.split('(')[0].strip()
+                    level_str = item_str.split('(')[1].split(')')[0].replace('%', '').strip()
+                    skill_level = int(level_str) if level_str.isdigit() else 0
+                else:
+                    skill_name = item_str
+                    skill_level = 0
+                child_id = 63000000 + idx * 1000 + child_idx
+                child_skillTerm = None
+                child_views = []
+                child_home = True
+                child_sort = child_idx
+            
+            dyb_child = {
+                "$views": child_views,
+                "skillTerm": child_skillTerm,
+                "id": child_id,
+                "home": child_home,
+                "sort": child_sort,
+                "description": skill_name,
+                "children": []
+            }
+            
+            # Add level only if not zero
+            if skill_level > 0:
+                dyb_child["level"] = skill_level
+            
+            dyb_skill['children'].append(dyb_child)
+        
+        dyb_skills.append(dyb_skill)
+    
+    dyb_data['skills'] = dyb_skills
     
     # Save to JSON
     with open(json_path, 'w', encoding='utf-8') as f:
