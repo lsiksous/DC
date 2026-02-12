@@ -206,8 +206,8 @@ def json_to_yaml(json_path: str, yaml_path: str) -> None:
     with open(yaml_path, 'w', encoding='utf-8') as f:
         yaml.dump(showcase, f, allow_unicode=True, sort_keys=False, default_flow_style=False, width=1000)
     
-    print(f"✅ Converted {json_path} to {yaml_path}")
-    print(f"📝 Original JSON saved to {original_json_path} for reference")
+    print(f"[OK] Converted {json_path} to {yaml_path}")
+    print(f"[INFO] Original JSON saved to {original_json_path} for reference")
 
 
 def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None) -> None:
@@ -495,8 +495,8 @@ def yaml_to_json(yaml_path: str, json_path: str, original_json_path: str = None)
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(dyb_data, f, ensure_ascii=False, indent=2)
     
-    print(f"✅ Converted {yaml_path} to {json_path}")
-    print(f"📤 Ready to import back to DoYouBuzz!")
+    print(f"[OK] Converted {yaml_path} to {json_path}")
+    print(f"[READY] Ready to import back to DoYouBuzz!")
 
 
 if __name__ == "__main__":
