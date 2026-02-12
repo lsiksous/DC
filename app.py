@@ -143,18 +143,14 @@ else:
                 items = skill_cat.get('items', [])
                 
                 # Edit existing items
-                new_items = []
                 for item_idx, item in enumerate(items):
                     col1, col2 = st.columns([4, 1])
                     with col1:
-                        new_item = st.text_input(f"Skill {item_idx + 1}", item, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
-                        if new_item:
-                            new_items.append(new_item)
+                        skill_cat['items'][item_idx] = st.text_input(f"Skill {item_idx + 1}", item, key=f"skill_{idx}_{item_idx}", label_visibility="collapsed")
                     with col2:
                         if st.button("🗑️", key=f"del_{idx}_{item_idx}"):
-                            pass  # Item will be excluded by not adding to new_items
-                
-                skill_cat['items'] = new_items
+                            skill_cat['items'].pop(item_idx)
+                            st.rerun()
                 
                 # Add new item
                 new_item_input = st.text_input("Add new skill", key=f"new_skill_{idx}")
@@ -238,7 +234,8 @@ else:
                     with col2:
                         st.markdown("<br>", unsafe_allow_html=True)  # Align delete button
                         if st.button("🗑️", key=f"del_mis_{idx}_{mis_idx}"):
-                            pass
+                            exp['missions'].pop(mis_idx)
+                            st.rerun()
                 
                 exp['missions'] = new_missions
                 
@@ -276,7 +273,8 @@ else:
                     with col2:
                         st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
                         if st.button("🗑️", key=f"del_res_{idx}_{res_idx}"):
-                            pass
+                            exp['results'].pop(res_idx)
+                            st.rerun()
                 
                 exp['results'] = new_results
                 
@@ -314,7 +312,8 @@ else:
                     with col2:
                         st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
                         if st.button("🗑️", key=f"del_obj_{idx}_{obj_idx}"):
-                            pass
+                            exp['objectives'].pop(obj_idx)
+                            st.rerun()
                 
                 exp['objectives'] = new_objectives
                 
@@ -351,7 +350,8 @@ else:
                                 new_envs.append(new_env)
                     with col2:
                         if st.button("🗑️", key=f"del_env_{idx}_{env_idx}"):
-                            pass
+                            exp['environments'].pop(env_idx)
+                            st.rerun()
                 
                 exp['environments'] = new_envs
                 
