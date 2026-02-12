@@ -16,7 +16,6 @@ YAML_FILE = Path("showcase.yaml")
 JSON_EXPORT = Path("showcase.json")
 
 # Load data
-@st.cache_data
 def load_yaml(file_path):
     """Load YAML file"""
     try:
@@ -30,7 +29,7 @@ def save_yaml(data, file_path):
     """Save data to YAML file"""
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
-            yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+            yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False, width=float('inf'))
         return True
     except Exception as e:
         st.error(f"Error saving YAML: {e}")
@@ -67,7 +66,10 @@ with st.sidebar:
     
     if st.button("💾 Save to YAML", type="primary"):
         if save_yaml(st.session_state.data, YAML_FILE):
-            st.success("✅ Saved successfully!")
+            st.success(f"✅ Saved successfully to {YAML_FILE.absolute()}!")
+            st.info(f"File size: {YAML_FILE.stat().st_size} bytes")
+        else:
+            st.error("❌ Save failed!")
     
     if st.button("📥 Export to DoYouBuzz JSON"):
         # Use doyoubuzz_converter for proper format
@@ -82,7 +84,9 @@ with st.sidebar:
             st.error(f"Export failed: {result.stderr}")
     
     if st.button("🔄 Reload from file"):
+        # Force reload by clearing any cache
         st.session_state.data = load_yaml(YAML_FILE)
+        st.success("✅ Reloaded from file!")
         st.rerun()
 
 # Main content area
